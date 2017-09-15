@@ -1,0 +1,23 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bsvc="urn:com.workday/bsvc">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <bsvc:Create_Position_Request bsvc:version="v29.0">
+         <bsvc:Business_Process_Parameters>
+            <bsvc:Auto_Complete>1</bsvc:Auto_Complete>
+         </bsvc:Business_Process_Parameters>
+         <bsvc:Create_Position_Data>
+            <bsvc:Supervisory_Organization_Reference>
+               <bsvc:ID bsvc:type="Organization_Reference_ID">SO_00082632</bsvc:ID>
+            </bsvc:Supervisory_Organization_Reference>
+            <bsvc:Position_Data>
+                <bsvc:Position_ID>80254321</bsvc:Position_ID>
+                <bsvc:Job_Posting_Title>MANAGER</bsvc:Job_Posting_Title>
+            </bsvc:Position_Data>
+            <bsvc:Position_Group_Restrictions_Data>
+               <bsvc:Availability_Date>2005-11-14</bsvc:Availability_Date>
+               <bsvc:Earliest_Hire_Date>2005-11-14</bsvc:Earliest_Hire_Date>
+            </bsvc:Position_Group_Restrictions_Data>
+         </bsvc:Create_Position_Data>
+      </bsvc:Create_Position_Request>
+   </soapenv:Body>
+</soapenv:Envelope>
