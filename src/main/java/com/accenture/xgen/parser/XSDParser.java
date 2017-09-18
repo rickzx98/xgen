@@ -18,28 +18,34 @@ import java.util.List;
 import java.util.Map;
 
 public class XSDParser {
+    private XSDData root;
 
     public XSDParser(String filepath) throws FileNotFoundException, XmlSchemaSerializer.XmlSchemaSerializerException {
         InputStream is = new FileInputStream(filepath);
         XmlSchemaCollection schemaCol = new XmlSchemaCollection();
         XmlSchema schema = schemaCol.read(new StreamSource(is), null);
         Document[] docs = schema.getAllSchemas();
-        XSDData xsdData = null;
+        root = null;
         for (Document doc : docs) {
-            xsdData = new XSDData("document", doc.getNodeValue());
-            parseNodeBody(doc.getChildNodes(), xsdData);
+            root = new XSDData("document", doc.getNodeValue());
+            parseNodeBody(doc.getChildNodes(), root);
         }
-        List<XSDData> childrenOf = xsdData.childrenOf("body");
-        System.out.println(childrenOf);
     }
 
     private void parseNodeBody(NodeList nodeList, XSDData xsdData) {
         int length = nodeList.getLength();
         for (int i = 0; i < length; i++) {
             Node node = nodeList.item(i);
-            XSDData newData = new XSDData(node.getLocalName(), node.getNodeValue());
-            parseNodeBody(node.getChildNodes(), newData);
-            xsdData.addChild(newData);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                node.normalize();
+                XSDData newData = new XSDData(node.getNodeName(), node.getTextContent());
+                parseNodeBody(node.getChildNodes(), newData);
+                xsdData.addChild(newData);
+            }
         }
+    }
+
+    public XSDData getRoot() {
+        return root;
     }
 }

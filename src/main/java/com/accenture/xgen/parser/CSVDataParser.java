@@ -15,6 +15,7 @@ public class CSVDataParser {
     private int batchCount = 1000;
     private Iterator<CSVRecord> records;
     private String[] columns;
+    private int colCountAve = 0;
 
     public CSVDataParser(String filepath, int batchCount) throws IOException {
         this(filepath);
@@ -27,12 +28,13 @@ public class CSVDataParser {
     }
 
     public void parseByBatch(ParseBatch parseBatch) {
-        new Thread(parseBatch.iterator(new CSVDataIterator(records))).start();
+        parseBatch.iterator(new CSVDataIterator(records)).start();
     }
 
     private class CSVDataIterator {
         private Iterator<CSVRecord> csvRecordIterator;
         private LinkedList<CSVData> batches;
+
         private CSVDataIterator(Iterator<CSVRecord> csvRecordIterator) {
             this.csvRecordIterator = csvRecordIterator;
         }
@@ -43,7 +45,6 @@ public class CSVDataParser {
 
         private List<CSVData> next() {
             int count = 0;
-            int colCountAve = 0;
             batches = new LinkedList<CSVData>();
             while (csvRecordIterator.hasNext() && count < batchCount) {
                 CSVRecord record = csvRecordIterator.next();
@@ -62,11 +63,14 @@ public class CSVDataParser {
                 }
                 count++;
             }
+            if (batches.isEmpty() && csvRecordIterator.hasNext()) {
+                return next();
+            }
             return batches;
         }
     }
 
-    public static abstract class ParseBatch implements Runnable {
+    public static abstract class ParseBatch {
         private CSVDataIterator csvDataIterator;
 
         private ParseBatch iterator(CSVDataIterator csvDataIterator) {
@@ -74,13 +78,13 @@ public class CSVDataParser {
             return this;
         }
 
-        @Override
-        public void run() {
+        public void start() {
             if (csvDataIterator.getCsvRecordIterator().hasNext()) {
-                callback(csvDataIterator.next(), new Thread(this));
+                callback(csvDataIterator.next(), this);
             }
         }
 
-        public abstract void callback(List<CSVData> result, Thread nextThread);
+
+        public abstract void callback(List<CSVData> result, ParseBatch nextBatch);
     }
 }

@@ -13,20 +13,31 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class CSVDataParserTest {
     private String filepath;
+    private int threadRan;
 
     @Before
     public void setup() {
         filepath = getClass().getClassLoader().getResource("create_position.csv").getFile();
+        threadRan = 0;
     }
 
     @Test
     public void testCSVDataParser() throws IOException {
-        CSVDataParser csvDataParser = new CSVDataParser(filepath, 2);
+        CSVDataParser csvDataParser = new CSVDataParser(filepath, 3);
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
             @Override
-            public void callback(List<CSVData> result, Thread nextThread) {
-                System.out.println(result);
-                nextThread.start();
+            public void callback(final List<CSVData> result, final CSVDataParser.ParseBatch nextBatch) {
+                new Thread(new Runnable() {
+                    public void run() {
+                        threadRan++;
+                        System.out.println(result);
+                        nextBatch.start();
+                    }
+                }).start();
+                while (threadRan < 3) {
+                    System.out.println("waiting for complete threads: " + threadRan);
+                }
+                Assert.assertEquals(3, threadRan);
             }
         });
     }
