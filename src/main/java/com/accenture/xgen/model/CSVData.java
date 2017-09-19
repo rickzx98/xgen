@@ -32,7 +32,7 @@ public class CSVData implements DocumentData {
         return data[index];
     }
 
-    public String construct(Structure structure, StructureData structureData) {
+    public String construct(Structure structure, StructureData structureData) throws Structure.StructureException {
         for (String field : fields) {
             String value = getValue(field);
             structure.put(field, value);

@@ -19,7 +19,7 @@ public class XMLGenerator {
             @Override
             public void callback(List<CSVData> result, CSVDataParser.ParseBatch nextBatch) {
                 for (CSVData csvData : result) {
-                    csvData.construct(new XMLStructure(), xsdData);
+
                 }
             }
         });
