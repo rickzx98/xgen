@@ -2,6 +2,7 @@ package com.accenture.xgen.generator;
 
 import com.accenture.xgen.model.Structure;
 import com.accenture.xgen.model.StructureData;
+import com.accenture.xgen.model.XSDData;
 
 import java.util.Map;
 
@@ -14,7 +15,8 @@ public class XMLStructure extends Structure {
             }
             xsdDoc.setValue(constructedValue.get(field));
         }
-        return structureData.toFormattedString();
+
+        return ((XSDData)structureData).findByFieldContains("body").toFormattedString();
     }
 
     public static class IncompatibleSchemaException extends StructureException {

@@ -32,7 +32,7 @@ public class XSDParser {
         Document[] docs = schema.getAllSchemas();
         root = null;
         for (Document doc : docs) {
-            root = new XSDData("document", doc.getTextContent(), doc.getAttributes());
+            root = new XSDData("document", doc.getTextContent(), doc.getAttributes(), doc.getPrefix(), doc.getNamespaceURI());
             parseNodeBody(doc.getChildNodes(), root);
         }
     }
@@ -43,7 +43,7 @@ public class XSDParser {
             Node node = nodeList.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 node.normalize();
-                XSDData newData = new XSDData(node.getNodeName(), node.getTextContent(), node.getAttributes());
+                XSDData newData = new XSDData(node.getNodeName(), node.getTextContent(), node.getAttributes(), node.getPrefix(), node.getNamespaceURI());
                 parseNodeBody(node.getChildNodes(), newData);
                 xsdData.addChild(newData);
             }

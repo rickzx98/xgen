@@ -1,6 +1,5 @@
 <soapenv:Envelope xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bsvc="urn:com.workday/bsvc"
-                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" attributeFormDefault="unqualified"
-                  elementFormDefault="unqualified">
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
     <soapenv:Body>
         <bsvc:Create_Position_Request bsvc:version="?">
             <bsvc:Business_Process_Parameters>
@@ -488,10 +487,1949 @@
                 </bsvc:Assign_Costing_Allocation_Sub_Process>
             </bsvc:Create_Position_Data>
         </bsvc:Create_Position_Request>
+        <bsvc:Create_Position_Request bsvc:version="?">
+            <bsvc:Business_Process_Parameters>
+                <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                <bsvc:Run_Now>?</bsvc:Run_Now>
+                <bsvc:Comment_Data>
+                    <bsvc:Comment>?</bsvc:Comment>
+                    <bsvc:Worker_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Reference>
+                </bsvc:Comment_Data>
+                <bsvc:Business_Process_Attachment_Data>
+                    <bsvc:File_Name>?</bsvc:File_Name>
+                    <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                    <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Event_Attachment_Category_Reference>
+                    <bsvc:File>cid:903251411920</bsvc:File>
+                    <bsvc:Content_Type>?</bsvc:Content_Type>
+                </bsvc:Business_Process_Attachment_Data>
+            </bsvc:Business_Process_Parameters>
+            <bsvc:Create_Position_Data>
+                <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">SO_00082632</bsvc:ID>
+                </bsvc:Supervisory_Organization_Reference>
+                <bsvc:Position_Request_Reason_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                </bsvc:Position_Request_Reason_Reference>
+                <bsvc:Position_Data>
+                    <bsvc:Position_ID>80254321</bsvc:Position_ID>
+                    <bsvc:Job_Posting_Title/>
+                    <bsvc:Job_Description_Summary>?</bsvc:Job_Description_Summary>
+                    <bsvc:Job_Description>?</bsvc:Job_Description>
+                    <bsvc:Critical_Job>?</bsvc:Critical_Job>
+                    <bsvc:Difficulty_to_Fill_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Difficulty_to_Fill_Reference>
+                </bsvc:Position_Data>
+                <bsvc:Qualification_Replacement_Data>
+                    <bsvc:Responsibility_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Responsibility_Qualification_Replacement_Data>
+                            <bsvc:Responsibility_Description>?</bsvc:Responsibility_Description>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Responsibility_Qualification_Replacement_Data>
+                    </bsvc:Responsibility_Qualification_Replacement>
+                    <bsvc:Work_Experience_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Work_Experience_Qualification_Replacement_Data>
+                            <bsvc:Worker_Experience_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Experience_Reference>
+                            <bsvc:Work_Experience_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Work_Experience_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Work_Experience_Qualification_Replacement_Data>
+                    </bsvc:Work_Experience_Qualification_Replacement>
+                    <bsvc:Education_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Education_Qualification_Replacement_Data>
+                            <bsvc:Degree_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Degree_Reference>
+                            <bsvc:Field_Of_Study_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Field_Of_Study_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Education_Qualification_Replacement_Data>
+                    </bsvc:Education_Qualification_Replacement>
+                    <bsvc:Language_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Language_Qualification_Replacement_Data>
+                            <bsvc:Language_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Language_Reference>
+                            <bsvc:Language_Ability_Profile_Data>
+                                <bsvc:Language_Ability_Type_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Ability_Type_Reference>
+                                <bsvc:Language_Proficiency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Proficiency_Reference>
+                            </bsvc:Language_Ability_Profile_Data>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Language_Qualification_Replacement_Data>
+                    </bsvc:Language_Qualification_Replacement>
+                    <bsvc:Competency_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Competency_Qualification_Replacement_Data>
+                            <bsvc:Competency_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Competency_Reference>
+                            <bsvc:Proficiency_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Proficiency_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Competency_Qualification_Replacement_Data>
+                    </bsvc:Competency_Qualification_Replacement>
+                    <bsvc:Certification_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Certification_Qualification_Replacement_Data>
+                            <bsvc:Country_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Country_Reference>
+                            <bsvc:Certification_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Certification_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Issuer>?</bsvc:Issuer>
+                            <bsvc:Required>?</bsvc:Required>
+                            <bsvc:Specialty_Achievement_Reference>
+                                <bsvc:Specialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Specialty_Reference>
+                                <bsvc:Subspecialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Subspecialty_Reference>
+                            </bsvc:Specialty_Achievement_Reference>
+                        </bsvc:Certification_Qualification_Replacement_Data>
+                    </bsvc:Certification_Qualification_Replacement>
+                    <bsvc:Training_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Training_Qualification_Replacement_Data>
+                            <bsvc:Training_Name>?</bsvc:Training_Name>
+                            <bsvc:Description>?</bsvc:Description>
+                            <bsvc:Training_Type_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Training_Type_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Training_Qualification_Replacement_Data>
+                    </bsvc:Training_Qualification_Replacement>
+                    <bsvc:Skill_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Skill_Qualification_Replacement_Data>
+                            <bsvc:Skill_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Skill_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Skill_Qualification_Replacement_Data>
+                    </bsvc:Skill_Qualification_Replacement>
+                </bsvc:Qualification_Replacement_Data>
+                <bsvc:Position_Group_Restrictions_Data>
+                    <bsvc:Availability_Date/>
+                    <bsvc:Earliest_Hire_Date>2005-11-14</bsvc:Earliest_Hire_Date>
+                    <bsvc:Job_Family_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Family_Reference>
+                    <bsvc:Job_Profile_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Profile_Reference>
+                    <bsvc:Location_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Location_Reference>
+                    <bsvc:Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Type_Reference>
+                    <bsvc:Time_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Time_Type_Reference>
+                    <bsvc:Position_Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Position_Worker_Type_Reference>
+                </bsvc:Position_Group_Restrictions_Data>
+                <bsvc:Edit_Assign_Organization_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1339944312672</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Organization_Assignments_Data>
+                        <bsvc:Company_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Company_Assignments_Reference>
+                        <bsvc:Cost_Center_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Cost_Center_Assignments_Reference>
+                        <bsvc:Region_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Region_Assignments_Reference>
+                        <bsvc:Custom_Organization_Assignment_Data bsvc:Delete="?">
+                            <bsvc:Custom_Organization_Assignment_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Custom_Organization_Assignment_Reference>
+                        </bsvc:Custom_Organization_Assignment_Data>
+                        <bsvc:Fund_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Fund_Assignments_Reference>
+                        <bsvc:Grant_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Grant_Assignments_Reference>
+                        <bsvc:Program_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Program_Assignments_Reference>
+                        <bsvc:Business_Unit_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Business_Unit_Assignments_Reference>
+                        <bsvc:Gift_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Gift_Assignments_Reference>
+                    </bsvc:Position_Organization_Assignments_Data>
+                </bsvc:Edit_Assign_Organization_Sub_Process>
+                <bsvc:Request_Default_Compensation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:802883867726</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Compensation_Default_Data>
+                        <bsvc:Guidelines_Data>
+                            <bsvc:Compensation_Package_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Package_Reference>
+                            <bsvc:Compensation_Grade_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Reference>
+                            <bsvc:Compensation_Grade_Profile_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Profile_Reference>
+                            <bsvc:Compensation_Step_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Step_Reference>
+                        </bsvc:Guidelines_Data>
+                        <bsvc:Pay_Plan_Data bsvc:Replace="?">
+                            <bsvc:Pay_Plan_Sub_Data>
+                                <bsvc:Pay_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Pay_Plan_Reference>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Percent_Change>?</bsvc:Percent_Change>
+                                <bsvc:Amount_Change>?</bsvc:Amount_Change>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Pay_Plan_Sub_Data>
+                        </bsvc:Pay_Plan_Data>
+                        <bsvc:Unit_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Unit_Salary_Plan_Sub_Data>
+                                <bsvc:Unit_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Salary_Plan_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Default_Units>?</bsvc:Default_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Unit_Salary_Plan_Sub_Data>
+                        </bsvc:Unit_Salary_Plan_Data>
+                        <bsvc:Allowance_Plan_Non-Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Allowance_Plan_Sub_Data>
+                                <bsvc:Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Allowance_Plan_Reference>
+                                <bsvc:Percent>?</bsvc:Percent>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Non-Unit_Based_Data>
+                        <bsvc:Allowance_Plan_Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Unit_Allowance_Plan_Sub_Data>
+                                <bsvc:Unit_Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Allowance_Plan_Reference>
+                                <bsvc:Number_of_Units>?</bsvc:Number_of_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Unit_Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Unit_Based_Data>
+                        <bsvc:Bonus_Plan_Data bsvc:Replace="?">
+                            <bsvc:Bonus_Plan_Sub_Data>
+                                <bsvc:Bonus_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Bonus_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Percent_Assigned>?</bsvc:Percent_Assigned>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Bonus_Plan_Sub_Data>
+                        </bsvc:Bonus_Plan_Data>
+                        <bsvc:Merit_Plan_Data bsvc:Replace="?">
+                            <bsvc:Merit_Plan_Sub_Data>
+                                <bsvc:Merit_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Merit_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Merit_Plan_Sub_Data>
+                        </bsvc:Merit_Plan_Data>
+                        <bsvc:Commission_Plan_Data bsvc:Replace="?">
+                            <bsvc:Commission_Plan_Sub_Data>
+                                <bsvc:Commission_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Commission_Plan_Reference>
+                                <bsvc:Target_Amount>?</bsvc:Target_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Draw_Amount>?</bsvc:Draw_Amount>
+                                <bsvc:Draw_Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Draw_Frequency_Reference>
+                                <bsvc:Draw_Duration>?</bsvc:Draw_Duration>
+                                <bsvc:Recoverable>?</bsvc:Recoverable>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Commission_Plan_Sub_Data>
+                        </bsvc:Commission_Plan_Data>
+                        <bsvc:Stock_Plan_Data bsvc:Replace="?">
+                            <bsvc:Stock_Plan_Sub_Data>
+                                <bsvc:Stock_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Stock_Plan_Reference>
+                                <bsvc:Individual_Target_Shares>?</bsvc:Individual_Target_Shares>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Stock_Plan_Sub_Data>
+                        </bsvc:Stock_Plan_Data>
+                        <bsvc:Period_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Period_Salary_Plan_Sub_Data>
+                                <bsvc:Period_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Period_Salary_Plan_Reference>
+                                <bsvc:Compensation_Period_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Compensation_Period_Reference>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Compensation_Period_Multiplier>?</bsvc:Compensation_Period_Multiplier>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Period_Salary_Plan_Sub_Data>
+                        </bsvc:Period_Salary_Plan_Data>
+                    </bsvc:Compensation_Default_Data>
+                </bsvc:Request_Default_Compensation_Sub_Process>
+                <bsvc:Assign_Pay_Group_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1233557891147</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Assign_Pay_Group_Data>
+                        <bsvc:Pay_Group_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Pay_Group_Reference>
+                    </bsvc:Assign_Pay_Group_Data>
+                </bsvc:Assign_Pay_Group_Sub_Process>
+                <bsvc:Assign_Costing_Allocation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:833956411695</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Costing_Allocation_Assignment_Data>
+                        <bsvc:Costing_Override_Data>
+                            <bsvc:Costing_Interval_Update_Key bsvc:Delete="?">
+                                <bsvc:Costing_Override_ID_Update_Key>?</bsvc:Costing_Override_ID_Update_Key>
+                                <bsvc:Start_Date_Update_Key>?</bsvc:Start_Date_Update_Key>
+                            </bsvc:Costing_Interval_Update_Key>
+                            <bsvc:Costing_Override_ID>?</bsvc:Costing_Override_ID>
+                            <bsvc:Start_Date>?</bsvc:Start_Date>
+                            <bsvc:End_Date>?</bsvc:End_Date>
+                            <bsvc:Costing_Allocation_Detail_Data>
+                                <bsvc:Order>?</bsvc:Order>
+                                <bsvc:Default_from_Organization_Assignment>?</bsvc:Default_from_Organization_Assignment>
+                                <bsvc:Costing_Override_Worktag_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Costing_Override_Worktag_Reference>
+                                <bsvc:Distribution_Percent>?</bsvc:Distribution_Percent>
+                                <bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                                    <bsvc:SOC_Order>?</bsvc:SOC_Order>
+                                    <bsvc:SOC_Default_from_Organization_Assignment>?
+                                    </bsvc:SOC_Default_from_Organization_Assignment>
+                                    <bsvc:SOC_Override_Worktag_Reference bsvc:Descriptor="?">
+                                        <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                    </bsvc:SOC_Override_Worktag_Reference>
+                                    <bsvc:SOC_Distribution_Percent>?</bsvc:SOC_Distribution_Percent>
+                                </bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                            </bsvc:Costing_Allocation_Detail_Data>
+                        </bsvc:Costing_Override_Data>
+                        <bsvc:Costing_Allocation_Level_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Level_Reference>
+                        <bsvc:Costing_Allocation_Earning_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Earning_Reference>
+                    </bsvc:Position_Costing_Allocation_Assignment_Data>
+                </bsvc:Assign_Costing_Allocation_Sub_Process>
+            </bsvc:Create_Position_Data>
+        </bsvc:Create_Position_Request>
+        <bsvc:Create_Position_Request bsvc:version="?">
+            <bsvc:Business_Process_Parameters>
+                <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                <bsvc:Run_Now>?</bsvc:Run_Now>
+                <bsvc:Comment_Data>
+                    <bsvc:Comment>?</bsvc:Comment>
+                    <bsvc:Worker_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Reference>
+                </bsvc:Comment_Data>
+                <bsvc:Business_Process_Attachment_Data>
+                    <bsvc:File_Name>?</bsvc:File_Name>
+                    <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                    <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Event_Attachment_Category_Reference>
+                    <bsvc:File>cid:903251411920</bsvc:File>
+                    <bsvc:Content_Type>?</bsvc:Content_Type>
+                </bsvc:Business_Process_Attachment_Data>
+            </bsvc:Business_Process_Parameters>
+            <bsvc:Create_Position_Data>
+                <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">SO_00082632</bsvc:ID>
+                </bsvc:Supervisory_Organization_Reference>
+                <bsvc:Position_Request_Reason_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                </bsvc:Position_Request_Reason_Reference>
+                <bsvc:Position_Data>
+                    <bsvc:Position_ID>80254321</bsvc:Position_ID>
+                    <bsvc:Job_Posting_Title/>
+                    <bsvc:Job_Description_Summary>?</bsvc:Job_Description_Summary>
+                    <bsvc:Job_Description>?</bsvc:Job_Description>
+                    <bsvc:Critical_Job>?</bsvc:Critical_Job>
+                    <bsvc:Difficulty_to_Fill_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Difficulty_to_Fill_Reference>
+                </bsvc:Position_Data>
+                <bsvc:Qualification_Replacement_Data>
+                    <bsvc:Responsibility_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Responsibility_Qualification_Replacement_Data>
+                            <bsvc:Responsibility_Description>?</bsvc:Responsibility_Description>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Responsibility_Qualification_Replacement_Data>
+                    </bsvc:Responsibility_Qualification_Replacement>
+                    <bsvc:Work_Experience_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Work_Experience_Qualification_Replacement_Data>
+                            <bsvc:Worker_Experience_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Experience_Reference>
+                            <bsvc:Work_Experience_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Work_Experience_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Work_Experience_Qualification_Replacement_Data>
+                    </bsvc:Work_Experience_Qualification_Replacement>
+                    <bsvc:Education_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Education_Qualification_Replacement_Data>
+                            <bsvc:Degree_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Degree_Reference>
+                            <bsvc:Field_Of_Study_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Field_Of_Study_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Education_Qualification_Replacement_Data>
+                    </bsvc:Education_Qualification_Replacement>
+                    <bsvc:Language_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Language_Qualification_Replacement_Data>
+                            <bsvc:Language_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Language_Reference>
+                            <bsvc:Language_Ability_Profile_Data>
+                                <bsvc:Language_Ability_Type_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Ability_Type_Reference>
+                                <bsvc:Language_Proficiency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Proficiency_Reference>
+                            </bsvc:Language_Ability_Profile_Data>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Language_Qualification_Replacement_Data>
+                    </bsvc:Language_Qualification_Replacement>
+                    <bsvc:Competency_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Competency_Qualification_Replacement_Data>
+                            <bsvc:Competency_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Competency_Reference>
+                            <bsvc:Proficiency_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Proficiency_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Competency_Qualification_Replacement_Data>
+                    </bsvc:Competency_Qualification_Replacement>
+                    <bsvc:Certification_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Certification_Qualification_Replacement_Data>
+                            <bsvc:Country_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Country_Reference>
+                            <bsvc:Certification_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Certification_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Issuer>?</bsvc:Issuer>
+                            <bsvc:Required>?</bsvc:Required>
+                            <bsvc:Specialty_Achievement_Reference>
+                                <bsvc:Specialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Specialty_Reference>
+                                <bsvc:Subspecialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Subspecialty_Reference>
+                            </bsvc:Specialty_Achievement_Reference>
+                        </bsvc:Certification_Qualification_Replacement_Data>
+                    </bsvc:Certification_Qualification_Replacement>
+                    <bsvc:Training_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Training_Qualification_Replacement_Data>
+                            <bsvc:Training_Name>?</bsvc:Training_Name>
+                            <bsvc:Description>?</bsvc:Description>
+                            <bsvc:Training_Type_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Training_Type_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Training_Qualification_Replacement_Data>
+                    </bsvc:Training_Qualification_Replacement>
+                    <bsvc:Skill_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Skill_Qualification_Replacement_Data>
+                            <bsvc:Skill_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Skill_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Skill_Qualification_Replacement_Data>
+                    </bsvc:Skill_Qualification_Replacement>
+                </bsvc:Qualification_Replacement_Data>
+                <bsvc:Position_Group_Restrictions_Data>
+                    <bsvc:Availability_Date/>
+                    <bsvc:Earliest_Hire_Date>2005-11-14</bsvc:Earliest_Hire_Date>
+                    <bsvc:Job_Family_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Family_Reference>
+                    <bsvc:Job_Profile_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Profile_Reference>
+                    <bsvc:Location_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Location_Reference>
+                    <bsvc:Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Type_Reference>
+                    <bsvc:Time_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Time_Type_Reference>
+                    <bsvc:Position_Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Position_Worker_Type_Reference>
+                </bsvc:Position_Group_Restrictions_Data>
+                <bsvc:Edit_Assign_Organization_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1339944312672</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Organization_Assignments_Data>
+                        <bsvc:Company_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Company_Assignments_Reference>
+                        <bsvc:Cost_Center_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Cost_Center_Assignments_Reference>
+                        <bsvc:Region_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Region_Assignments_Reference>
+                        <bsvc:Custom_Organization_Assignment_Data bsvc:Delete="?">
+                            <bsvc:Custom_Organization_Assignment_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Custom_Organization_Assignment_Reference>
+                        </bsvc:Custom_Organization_Assignment_Data>
+                        <bsvc:Fund_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Fund_Assignments_Reference>
+                        <bsvc:Grant_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Grant_Assignments_Reference>
+                        <bsvc:Program_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Program_Assignments_Reference>
+                        <bsvc:Business_Unit_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Business_Unit_Assignments_Reference>
+                        <bsvc:Gift_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Gift_Assignments_Reference>
+                    </bsvc:Position_Organization_Assignments_Data>
+                </bsvc:Edit_Assign_Organization_Sub_Process>
+                <bsvc:Request_Default_Compensation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:802883867726</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Compensation_Default_Data>
+                        <bsvc:Guidelines_Data>
+                            <bsvc:Compensation_Package_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Package_Reference>
+                            <bsvc:Compensation_Grade_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Reference>
+                            <bsvc:Compensation_Grade_Profile_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Profile_Reference>
+                            <bsvc:Compensation_Step_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Step_Reference>
+                        </bsvc:Guidelines_Data>
+                        <bsvc:Pay_Plan_Data bsvc:Replace="?">
+                            <bsvc:Pay_Plan_Sub_Data>
+                                <bsvc:Pay_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Pay_Plan_Reference>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Percent_Change>?</bsvc:Percent_Change>
+                                <bsvc:Amount_Change>?</bsvc:Amount_Change>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Pay_Plan_Sub_Data>
+                        </bsvc:Pay_Plan_Data>
+                        <bsvc:Unit_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Unit_Salary_Plan_Sub_Data>
+                                <bsvc:Unit_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Salary_Plan_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Default_Units>?</bsvc:Default_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Unit_Salary_Plan_Sub_Data>
+                        </bsvc:Unit_Salary_Plan_Data>
+                        <bsvc:Allowance_Plan_Non-Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Allowance_Plan_Sub_Data>
+                                <bsvc:Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Allowance_Plan_Reference>
+                                <bsvc:Percent>?</bsvc:Percent>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Non-Unit_Based_Data>
+                        <bsvc:Allowance_Plan_Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Unit_Allowance_Plan_Sub_Data>
+                                <bsvc:Unit_Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Allowance_Plan_Reference>
+                                <bsvc:Number_of_Units>?</bsvc:Number_of_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Unit_Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Unit_Based_Data>
+                        <bsvc:Bonus_Plan_Data bsvc:Replace="?">
+                            <bsvc:Bonus_Plan_Sub_Data>
+                                <bsvc:Bonus_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Bonus_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Percent_Assigned>?</bsvc:Percent_Assigned>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Bonus_Plan_Sub_Data>
+                        </bsvc:Bonus_Plan_Data>
+                        <bsvc:Merit_Plan_Data bsvc:Replace="?">
+                            <bsvc:Merit_Plan_Sub_Data>
+                                <bsvc:Merit_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Merit_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Merit_Plan_Sub_Data>
+                        </bsvc:Merit_Plan_Data>
+                        <bsvc:Commission_Plan_Data bsvc:Replace="?">
+                            <bsvc:Commission_Plan_Sub_Data>
+                                <bsvc:Commission_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Commission_Plan_Reference>
+                                <bsvc:Target_Amount>?</bsvc:Target_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Draw_Amount>?</bsvc:Draw_Amount>
+                                <bsvc:Draw_Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Draw_Frequency_Reference>
+                                <bsvc:Draw_Duration>?</bsvc:Draw_Duration>
+                                <bsvc:Recoverable>?</bsvc:Recoverable>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Commission_Plan_Sub_Data>
+                        </bsvc:Commission_Plan_Data>
+                        <bsvc:Stock_Plan_Data bsvc:Replace="?">
+                            <bsvc:Stock_Plan_Sub_Data>
+                                <bsvc:Stock_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Stock_Plan_Reference>
+                                <bsvc:Individual_Target_Shares>?</bsvc:Individual_Target_Shares>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Stock_Plan_Sub_Data>
+                        </bsvc:Stock_Plan_Data>
+                        <bsvc:Period_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Period_Salary_Plan_Sub_Data>
+                                <bsvc:Period_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Period_Salary_Plan_Reference>
+                                <bsvc:Compensation_Period_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Compensation_Period_Reference>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Compensation_Period_Multiplier>?</bsvc:Compensation_Period_Multiplier>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Period_Salary_Plan_Sub_Data>
+                        </bsvc:Period_Salary_Plan_Data>
+                    </bsvc:Compensation_Default_Data>
+                </bsvc:Request_Default_Compensation_Sub_Process>
+                <bsvc:Assign_Pay_Group_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1233557891147</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Assign_Pay_Group_Data>
+                        <bsvc:Pay_Group_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Pay_Group_Reference>
+                    </bsvc:Assign_Pay_Group_Data>
+                </bsvc:Assign_Pay_Group_Sub_Process>
+                <bsvc:Assign_Costing_Allocation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:833956411695</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Costing_Allocation_Assignment_Data>
+                        <bsvc:Costing_Override_Data>
+                            <bsvc:Costing_Interval_Update_Key bsvc:Delete="?">
+                                <bsvc:Costing_Override_ID_Update_Key>?</bsvc:Costing_Override_ID_Update_Key>
+                                <bsvc:Start_Date_Update_Key>?</bsvc:Start_Date_Update_Key>
+                            </bsvc:Costing_Interval_Update_Key>
+                            <bsvc:Costing_Override_ID>?</bsvc:Costing_Override_ID>
+                            <bsvc:Start_Date>?</bsvc:Start_Date>
+                            <bsvc:End_Date>?</bsvc:End_Date>
+                            <bsvc:Costing_Allocation_Detail_Data>
+                                <bsvc:Order>?</bsvc:Order>
+                                <bsvc:Default_from_Organization_Assignment>?</bsvc:Default_from_Organization_Assignment>
+                                <bsvc:Costing_Override_Worktag_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Costing_Override_Worktag_Reference>
+                                <bsvc:Distribution_Percent>?</bsvc:Distribution_Percent>
+                                <bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                                    <bsvc:SOC_Order>?</bsvc:SOC_Order>
+                                    <bsvc:SOC_Default_from_Organization_Assignment>?
+                                    </bsvc:SOC_Default_from_Organization_Assignment>
+                                    <bsvc:SOC_Override_Worktag_Reference bsvc:Descriptor="?">
+                                        <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                    </bsvc:SOC_Override_Worktag_Reference>
+                                    <bsvc:SOC_Distribution_Percent>?</bsvc:SOC_Distribution_Percent>
+                                </bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                            </bsvc:Costing_Allocation_Detail_Data>
+                        </bsvc:Costing_Override_Data>
+                        <bsvc:Costing_Allocation_Level_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Level_Reference>
+                        <bsvc:Costing_Allocation_Earning_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Earning_Reference>
+                    </bsvc:Position_Costing_Allocation_Assignment_Data>
+                </bsvc:Assign_Costing_Allocation_Sub_Process>
+            </bsvc:Create_Position_Data>
+        </bsvc:Create_Position_Request>
+        <bsvc:Create_Position_Request bsvc:version="?">
+            <bsvc:Business_Process_Parameters>
+                <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                <bsvc:Run_Now>?</bsvc:Run_Now>
+                <bsvc:Comment_Data>
+                    <bsvc:Comment>?</bsvc:Comment>
+                    <bsvc:Worker_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Reference>
+                </bsvc:Comment_Data>
+                <bsvc:Business_Process_Attachment_Data>
+                    <bsvc:File_Name>?</bsvc:File_Name>
+                    <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                    <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Event_Attachment_Category_Reference>
+                    <bsvc:File>cid:903251411920</bsvc:File>
+                    <bsvc:Content_Type>?</bsvc:Content_Type>
+                </bsvc:Business_Process_Attachment_Data>
+            </bsvc:Business_Process_Parameters>
+            <bsvc:Create_Position_Data>
+                <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">SO_00082632</bsvc:ID>
+                </bsvc:Supervisory_Organization_Reference>
+                <bsvc:Position_Request_Reason_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                </bsvc:Position_Request_Reason_Reference>
+                <bsvc:Position_Data>
+                    <bsvc:Position_ID>80254321</bsvc:Position_ID>
+                    <bsvc:Job_Posting_Title/>
+                    <bsvc:Job_Description_Summary>?</bsvc:Job_Description_Summary>
+                    <bsvc:Job_Description>?</bsvc:Job_Description>
+                    <bsvc:Critical_Job>?</bsvc:Critical_Job>
+                    <bsvc:Difficulty_to_Fill_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Difficulty_to_Fill_Reference>
+                </bsvc:Position_Data>
+                <bsvc:Qualification_Replacement_Data>
+                    <bsvc:Responsibility_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Responsibility_Qualification_Replacement_Data>
+                            <bsvc:Responsibility_Description>?</bsvc:Responsibility_Description>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Responsibility_Qualification_Replacement_Data>
+                    </bsvc:Responsibility_Qualification_Replacement>
+                    <bsvc:Work_Experience_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Work_Experience_Qualification_Replacement_Data>
+                            <bsvc:Worker_Experience_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Experience_Reference>
+                            <bsvc:Work_Experience_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Work_Experience_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Work_Experience_Qualification_Replacement_Data>
+                    </bsvc:Work_Experience_Qualification_Replacement>
+                    <bsvc:Education_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Education_Qualification_Replacement_Data>
+                            <bsvc:Degree_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Degree_Reference>
+                            <bsvc:Field_Of_Study_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Field_Of_Study_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Education_Qualification_Replacement_Data>
+                    </bsvc:Education_Qualification_Replacement>
+                    <bsvc:Language_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Language_Qualification_Replacement_Data>
+                            <bsvc:Language_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Language_Reference>
+                            <bsvc:Language_Ability_Profile_Data>
+                                <bsvc:Language_Ability_Type_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Ability_Type_Reference>
+                                <bsvc:Language_Proficiency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Proficiency_Reference>
+                            </bsvc:Language_Ability_Profile_Data>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Language_Qualification_Replacement_Data>
+                    </bsvc:Language_Qualification_Replacement>
+                    <bsvc:Competency_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Competency_Qualification_Replacement_Data>
+                            <bsvc:Competency_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Competency_Reference>
+                            <bsvc:Proficiency_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Proficiency_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Competency_Qualification_Replacement_Data>
+                    </bsvc:Competency_Qualification_Replacement>
+                    <bsvc:Certification_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Certification_Qualification_Replacement_Data>
+                            <bsvc:Country_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Country_Reference>
+                            <bsvc:Certification_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Certification_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Issuer>?</bsvc:Issuer>
+                            <bsvc:Required>?</bsvc:Required>
+                            <bsvc:Specialty_Achievement_Reference>
+                                <bsvc:Specialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Specialty_Reference>
+                                <bsvc:Subspecialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Subspecialty_Reference>
+                            </bsvc:Specialty_Achievement_Reference>
+                        </bsvc:Certification_Qualification_Replacement_Data>
+                    </bsvc:Certification_Qualification_Replacement>
+                    <bsvc:Training_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Training_Qualification_Replacement_Data>
+                            <bsvc:Training_Name>?</bsvc:Training_Name>
+                            <bsvc:Description>?</bsvc:Description>
+                            <bsvc:Training_Type_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Training_Type_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Training_Qualification_Replacement_Data>
+                    </bsvc:Training_Qualification_Replacement>
+                    <bsvc:Skill_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Skill_Qualification_Replacement_Data>
+                            <bsvc:Skill_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Skill_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Skill_Qualification_Replacement_Data>
+                    </bsvc:Skill_Qualification_Replacement>
+                </bsvc:Qualification_Replacement_Data>
+                <bsvc:Position_Group_Restrictions_Data>
+                    <bsvc:Availability_Date/>
+                    <bsvc:Earliest_Hire_Date>2005-11-14</bsvc:Earliest_Hire_Date>
+                    <bsvc:Job_Family_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Family_Reference>
+                    <bsvc:Job_Profile_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Profile_Reference>
+                    <bsvc:Location_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Location_Reference>
+                    <bsvc:Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Type_Reference>
+                    <bsvc:Time_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Time_Type_Reference>
+                    <bsvc:Position_Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Position_Worker_Type_Reference>
+                </bsvc:Position_Group_Restrictions_Data>
+                <bsvc:Edit_Assign_Organization_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1339944312672</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Organization_Assignments_Data>
+                        <bsvc:Company_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Company_Assignments_Reference>
+                        <bsvc:Cost_Center_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Cost_Center_Assignments_Reference>
+                        <bsvc:Region_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Region_Assignments_Reference>
+                        <bsvc:Custom_Organization_Assignment_Data bsvc:Delete="?">
+                            <bsvc:Custom_Organization_Assignment_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Custom_Organization_Assignment_Reference>
+                        </bsvc:Custom_Organization_Assignment_Data>
+                        <bsvc:Fund_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Fund_Assignments_Reference>
+                        <bsvc:Grant_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Grant_Assignments_Reference>
+                        <bsvc:Program_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Program_Assignments_Reference>
+                        <bsvc:Business_Unit_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Business_Unit_Assignments_Reference>
+                        <bsvc:Gift_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Gift_Assignments_Reference>
+                    </bsvc:Position_Organization_Assignments_Data>
+                </bsvc:Edit_Assign_Organization_Sub_Process>
+                <bsvc:Request_Default_Compensation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:802883867726</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Compensation_Default_Data>
+                        <bsvc:Guidelines_Data>
+                            <bsvc:Compensation_Package_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Package_Reference>
+                            <bsvc:Compensation_Grade_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Reference>
+                            <bsvc:Compensation_Grade_Profile_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Profile_Reference>
+                            <bsvc:Compensation_Step_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Step_Reference>
+                        </bsvc:Guidelines_Data>
+                        <bsvc:Pay_Plan_Data bsvc:Replace="?">
+                            <bsvc:Pay_Plan_Sub_Data>
+                                <bsvc:Pay_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Pay_Plan_Reference>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Percent_Change>?</bsvc:Percent_Change>
+                                <bsvc:Amount_Change>?</bsvc:Amount_Change>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Pay_Plan_Sub_Data>
+                        </bsvc:Pay_Plan_Data>
+                        <bsvc:Unit_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Unit_Salary_Plan_Sub_Data>
+                                <bsvc:Unit_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Salary_Plan_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Default_Units>?</bsvc:Default_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Unit_Salary_Plan_Sub_Data>
+                        </bsvc:Unit_Salary_Plan_Data>
+                        <bsvc:Allowance_Plan_Non-Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Allowance_Plan_Sub_Data>
+                                <bsvc:Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Allowance_Plan_Reference>
+                                <bsvc:Percent>?</bsvc:Percent>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Non-Unit_Based_Data>
+                        <bsvc:Allowance_Plan_Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Unit_Allowance_Plan_Sub_Data>
+                                <bsvc:Unit_Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Allowance_Plan_Reference>
+                                <bsvc:Number_of_Units>?</bsvc:Number_of_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Unit_Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Unit_Based_Data>
+                        <bsvc:Bonus_Plan_Data bsvc:Replace="?">
+                            <bsvc:Bonus_Plan_Sub_Data>
+                                <bsvc:Bonus_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Bonus_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Percent_Assigned>?</bsvc:Percent_Assigned>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Bonus_Plan_Sub_Data>
+                        </bsvc:Bonus_Plan_Data>
+                        <bsvc:Merit_Plan_Data bsvc:Replace="?">
+                            <bsvc:Merit_Plan_Sub_Data>
+                                <bsvc:Merit_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Merit_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Merit_Plan_Sub_Data>
+                        </bsvc:Merit_Plan_Data>
+                        <bsvc:Commission_Plan_Data bsvc:Replace="?">
+                            <bsvc:Commission_Plan_Sub_Data>
+                                <bsvc:Commission_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Commission_Plan_Reference>
+                                <bsvc:Target_Amount>?</bsvc:Target_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Draw_Amount>?</bsvc:Draw_Amount>
+                                <bsvc:Draw_Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Draw_Frequency_Reference>
+                                <bsvc:Draw_Duration>?</bsvc:Draw_Duration>
+                                <bsvc:Recoverable>?</bsvc:Recoverable>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Commission_Plan_Sub_Data>
+                        </bsvc:Commission_Plan_Data>
+                        <bsvc:Stock_Plan_Data bsvc:Replace="?">
+                            <bsvc:Stock_Plan_Sub_Data>
+                                <bsvc:Stock_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Stock_Plan_Reference>
+                                <bsvc:Individual_Target_Shares>?</bsvc:Individual_Target_Shares>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Stock_Plan_Sub_Data>
+                        </bsvc:Stock_Plan_Data>
+                        <bsvc:Period_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Period_Salary_Plan_Sub_Data>
+                                <bsvc:Period_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Period_Salary_Plan_Reference>
+                                <bsvc:Compensation_Period_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Compensation_Period_Reference>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Compensation_Period_Multiplier>?</bsvc:Compensation_Period_Multiplier>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Period_Salary_Plan_Sub_Data>
+                        </bsvc:Period_Salary_Plan_Data>
+                    </bsvc:Compensation_Default_Data>
+                </bsvc:Request_Default_Compensation_Sub_Process>
+                <bsvc:Assign_Pay_Group_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1233557891147</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Assign_Pay_Group_Data>
+                        <bsvc:Pay_Group_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Pay_Group_Reference>
+                    </bsvc:Assign_Pay_Group_Data>
+                </bsvc:Assign_Pay_Group_Sub_Process>
+                <bsvc:Assign_Costing_Allocation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:833956411695</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Costing_Allocation_Assignment_Data>
+                        <bsvc:Costing_Override_Data>
+                            <bsvc:Costing_Interval_Update_Key bsvc:Delete="?">
+                                <bsvc:Costing_Override_ID_Update_Key>?</bsvc:Costing_Override_ID_Update_Key>
+                                <bsvc:Start_Date_Update_Key>?</bsvc:Start_Date_Update_Key>
+                            </bsvc:Costing_Interval_Update_Key>
+                            <bsvc:Costing_Override_ID>?</bsvc:Costing_Override_ID>
+                            <bsvc:Start_Date>?</bsvc:Start_Date>
+                            <bsvc:End_Date>?</bsvc:End_Date>
+                            <bsvc:Costing_Allocation_Detail_Data>
+                                <bsvc:Order>?</bsvc:Order>
+                                <bsvc:Default_from_Organization_Assignment>?</bsvc:Default_from_Organization_Assignment>
+                                <bsvc:Costing_Override_Worktag_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Costing_Override_Worktag_Reference>
+                                <bsvc:Distribution_Percent>?</bsvc:Distribution_Percent>
+                                <bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                                    <bsvc:SOC_Order>?</bsvc:SOC_Order>
+                                    <bsvc:SOC_Default_from_Organization_Assignment>?
+                                    </bsvc:SOC_Default_from_Organization_Assignment>
+                                    <bsvc:SOC_Override_Worktag_Reference bsvc:Descriptor="?">
+                                        <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                    </bsvc:SOC_Override_Worktag_Reference>
+                                    <bsvc:SOC_Distribution_Percent>?</bsvc:SOC_Distribution_Percent>
+                                </bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                            </bsvc:Costing_Allocation_Detail_Data>
+                        </bsvc:Costing_Override_Data>
+                        <bsvc:Costing_Allocation_Level_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Level_Reference>
+                        <bsvc:Costing_Allocation_Earning_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Earning_Reference>
+                    </bsvc:Position_Costing_Allocation_Assignment_Data>
+                </bsvc:Assign_Costing_Allocation_Sub_Process>
+            </bsvc:Create_Position_Data>
+        </bsvc:Create_Position_Request>
+        <bsvc:Create_Position_Request bsvc:version="?">
+            <bsvc:Business_Process_Parameters>
+                <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                <bsvc:Run_Now>?</bsvc:Run_Now>
+                <bsvc:Comment_Data>
+                    <bsvc:Comment>?</bsvc:Comment>
+                    <bsvc:Worker_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Reference>
+                </bsvc:Comment_Data>
+                <bsvc:Business_Process_Attachment_Data>
+                    <bsvc:File_Name>?</bsvc:File_Name>
+                    <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                    <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Event_Attachment_Category_Reference>
+                    <bsvc:File>cid:903251411920</bsvc:File>
+                    <bsvc:Content_Type>?</bsvc:Content_Type>
+                </bsvc:Business_Process_Attachment_Data>
+            </bsvc:Business_Process_Parameters>
+            <bsvc:Create_Position_Data>
+                <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">SO_00082632</bsvc:ID>
+                </bsvc:Supervisory_Organization_Reference>
+                <bsvc:Position_Request_Reason_Reference bsvc:Descriptor="?">
+                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                </bsvc:Position_Request_Reason_Reference>
+                <bsvc:Position_Data>
+                    <bsvc:Position_ID>80254321</bsvc:Position_ID>
+                    <bsvc:Job_Posting_Title/>
+                    <bsvc:Job_Description_Summary>?</bsvc:Job_Description_Summary>
+                    <bsvc:Job_Description>?</bsvc:Job_Description>
+                    <bsvc:Critical_Job>?</bsvc:Critical_Job>
+                    <bsvc:Difficulty_to_Fill_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Difficulty_to_Fill_Reference>
+                </bsvc:Position_Data>
+                <bsvc:Qualification_Replacement_Data>
+                    <bsvc:Responsibility_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Responsibility_Qualification_Replacement_Data>
+                            <bsvc:Responsibility_Description>?</bsvc:Responsibility_Description>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Responsibility_Qualification_Replacement_Data>
+                    </bsvc:Responsibility_Qualification_Replacement>
+                    <bsvc:Work_Experience_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Work_Experience_Qualification_Replacement_Data>
+                            <bsvc:Worker_Experience_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Experience_Reference>
+                            <bsvc:Work_Experience_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Work_Experience_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Work_Experience_Qualification_Replacement_Data>
+                    </bsvc:Work_Experience_Qualification_Replacement>
+                    <bsvc:Education_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Education_Qualification_Replacement_Data>
+                            <bsvc:Degree_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Degree_Reference>
+                            <bsvc:Field_Of_Study_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Field_Of_Study_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Education_Qualification_Replacement_Data>
+                    </bsvc:Education_Qualification_Replacement>
+                    <bsvc:Language_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Language_Qualification_Replacement_Data>
+                            <bsvc:Language_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Language_Reference>
+                            <bsvc:Language_Ability_Profile_Data>
+                                <bsvc:Language_Ability_Type_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Ability_Type_Reference>
+                                <bsvc:Language_Proficiency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Language_Proficiency_Reference>
+                            </bsvc:Language_Ability_Profile_Data>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Language_Qualification_Replacement_Data>
+                    </bsvc:Language_Qualification_Replacement>
+                    <bsvc:Competency_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Competency_Qualification_Replacement_Data>
+                            <bsvc:Competency_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Competency_Reference>
+                            <bsvc:Proficiency_Rating_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Proficiency_Rating_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Competency_Qualification_Replacement_Data>
+                    </bsvc:Competency_Qualification_Replacement>
+                    <bsvc:Certification_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Certification_Qualification_Replacement_Data>
+                            <bsvc:Country_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Country_Reference>
+                            <bsvc:Certification_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Certification_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Issuer>?</bsvc:Issuer>
+                            <bsvc:Required>?</bsvc:Required>
+                            <bsvc:Specialty_Achievement_Reference>
+                                <bsvc:Specialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Specialty_Reference>
+                                <bsvc:Subspecialty_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Subspecialty_Reference>
+                            </bsvc:Specialty_Achievement_Reference>
+                        </bsvc:Certification_Qualification_Replacement_Data>
+                    </bsvc:Certification_Qualification_Replacement>
+                    <bsvc:Training_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Training_Qualification_Replacement_Data>
+                            <bsvc:Training_Name>?</bsvc:Training_Name>
+                            <bsvc:Description>?</bsvc:Description>
+                            <bsvc:Training_Type_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Training_Type_Reference>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Training_Qualification_Replacement_Data>
+                    </bsvc:Training_Qualification_Replacement>
+                    <bsvc:Skill_Qualification_Replacement bsvc:Delete="?">
+                        <bsvc:Skill_Qualification_Replacement_Data>
+                            <bsvc:Skill_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Skill_Reference>
+                            <bsvc:Name>?</bsvc:Name>
+                            <bsvc:Required>?</bsvc:Required>
+                        </bsvc:Skill_Qualification_Replacement_Data>
+                    </bsvc:Skill_Qualification_Replacement>
+                </bsvc:Qualification_Replacement_Data>
+                <bsvc:Position_Group_Restrictions_Data>
+                    <bsvc:Availability_Date/>
+                    <bsvc:Earliest_Hire_Date>2005-11-14</bsvc:Earliest_Hire_Date>
+                    <bsvc:Job_Family_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Family_Reference>
+                    <bsvc:Job_Profile_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Job_Profile_Reference>
+                    <bsvc:Location_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Location_Reference>
+                    <bsvc:Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Worker_Type_Reference>
+                    <bsvc:Time_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Time_Type_Reference>
+                    <bsvc:Position_Worker_Type_Reference bsvc:Descriptor="?">
+                        <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                    </bsvc:Position_Worker_Type_Reference>
+                </bsvc:Position_Group_Restrictions_Data>
+                <bsvc:Edit_Assign_Organization_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1339944312672</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Organization_Assignments_Data>
+                        <bsvc:Company_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Company_Assignments_Reference>
+                        <bsvc:Cost_Center_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Cost_Center_Assignments_Reference>
+                        <bsvc:Region_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Region_Assignments_Reference>
+                        <bsvc:Custom_Organization_Assignment_Data bsvc:Delete="?">
+                            <bsvc:Custom_Organization_Assignment_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Custom_Organization_Assignment_Reference>
+                        </bsvc:Custom_Organization_Assignment_Data>
+                        <bsvc:Fund_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Fund_Assignments_Reference>
+                        <bsvc:Grant_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Grant_Assignments_Reference>
+                        <bsvc:Program_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Program_Assignments_Reference>
+                        <bsvc:Business_Unit_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Business_Unit_Assignments_Reference>
+                        <bsvc:Gift_Assignments_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Gift_Assignments_Reference>
+                    </bsvc:Position_Organization_Assignments_Data>
+                </bsvc:Edit_Assign_Organization_Sub_Process>
+                <bsvc:Request_Default_Compensation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:802883867726</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Compensation_Default_Data>
+                        <bsvc:Guidelines_Data>
+                            <bsvc:Compensation_Package_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Package_Reference>
+                            <bsvc:Compensation_Grade_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Reference>
+                            <bsvc:Compensation_Grade_Profile_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Grade_Profile_Reference>
+                            <bsvc:Compensation_Step_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Compensation_Step_Reference>
+                        </bsvc:Guidelines_Data>
+                        <bsvc:Pay_Plan_Data bsvc:Replace="?">
+                            <bsvc:Pay_Plan_Sub_Data>
+                                <bsvc:Pay_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Pay_Plan_Reference>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Percent_Change>?</bsvc:Percent_Change>
+                                <bsvc:Amount_Change>?</bsvc:Amount_Change>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Pay_Plan_Sub_Data>
+                        </bsvc:Pay_Plan_Data>
+                        <bsvc:Unit_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Unit_Salary_Plan_Sub_Data>
+                                <bsvc:Unit_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Salary_Plan_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Default_Units>?</bsvc:Default_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Unit_Salary_Plan_Sub_Data>
+                        </bsvc:Unit_Salary_Plan_Data>
+                        <bsvc:Allowance_Plan_Non-Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Allowance_Plan_Sub_Data>
+                                <bsvc:Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Allowance_Plan_Reference>
+                                <bsvc:Percent>?</bsvc:Percent>
+                                <bsvc:Amount>?</bsvc:Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Expected_End_Date>?</bsvc:Expected_End_Date>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Non-Unit_Based_Data>
+                        <bsvc:Allowance_Plan_Unit_Based_Data bsvc:Replace="?">
+                            <bsvc:Unit_Allowance_Plan_Sub_Data>
+                                <bsvc:Unit_Allowance_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Unit_Allowance_Plan_Reference>
+                                <bsvc:Number_of_Units>?</bsvc:Number_of_Units>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Per_Unit_Amount>?</bsvc:Per_Unit_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Reimbursement_Start_Date>?</bsvc:Reimbursement_Start_Date>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Unit_Allowance_Plan_Sub_Data>
+                        </bsvc:Allowance_Plan_Unit_Based_Data>
+                        <bsvc:Bonus_Plan_Data bsvc:Replace="?">
+                            <bsvc:Bonus_Plan_Sub_Data>
+                                <bsvc:Bonus_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Bonus_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Percent_Assigned>?</bsvc:Percent_Assigned>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Bonus_Plan_Sub_Data>
+                        </bsvc:Bonus_Plan_Data>
+                        <bsvc:Merit_Plan_Data bsvc:Replace="?">
+                            <bsvc:Merit_Plan_Sub_Data>
+                                <bsvc:Merit_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Merit_Plan_Reference>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Guaranteed_Minimum>?</bsvc:Guaranteed_Minimum>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Merit_Plan_Sub_Data>
+                        </bsvc:Merit_Plan_Data>
+                        <bsvc:Commission_Plan_Data bsvc:Replace="?">
+                            <bsvc:Commission_Plan_Sub_Data>
+                                <bsvc:Commission_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Commission_Plan_Reference>
+                                <bsvc:Target_Amount>?</bsvc:Target_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Draw_Amount>?</bsvc:Draw_Amount>
+                                <bsvc:Draw_Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Draw_Frequency_Reference>
+                                <bsvc:Draw_Duration>?</bsvc:Draw_Duration>
+                                <bsvc:Recoverable>?</bsvc:Recoverable>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Commission_Plan_Sub_Data>
+                        </bsvc:Commission_Plan_Data>
+                        <bsvc:Stock_Plan_Data bsvc:Replace="?">
+                            <bsvc:Stock_Plan_Sub_Data>
+                                <bsvc:Stock_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Stock_Plan_Reference>
+                                <bsvc:Individual_Target_Shares>?</bsvc:Individual_Target_Shares>
+                                <bsvc:Individual_Target_Percent>?</bsvc:Individual_Target_Percent>
+                                <bsvc:Individual_Target_Amount>?</bsvc:Individual_Target_Amount>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                                <bsvc:Fixed_for_Manage_by_Basis_Total>?</bsvc:Fixed_for_Manage_by_Basis_Total>
+                            </bsvc:Stock_Plan_Sub_Data>
+                        </bsvc:Stock_Plan_Data>
+                        <bsvc:Period_Salary_Plan_Data bsvc:Replace="?">
+                            <bsvc:Period_Salary_Plan_Sub_Data>
+                                <bsvc:Period_Salary_Plan_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Period_Salary_Plan_Reference>
+                                <bsvc:Compensation_Period_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Compensation_Period_Reference>
+                                <bsvc:Manage_by_Compensation_Basis_Override_Amount>?
+                                </bsvc:Manage_by_Compensation_Basis_Override_Amount>
+                                <bsvc:Currency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Currency_Reference>
+                                <bsvc:Compensation_Period_Multiplier>?</bsvc:Compensation_Period_Multiplier>
+                                <bsvc:Frequency_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Frequency_Reference>
+                                <bsvc:Actual_End_Date>?</bsvc:Actual_End_Date>
+                            </bsvc:Period_Salary_Plan_Sub_Data>
+                        </bsvc:Period_Salary_Plan_Data>
+                    </bsvc:Compensation_Default_Data>
+                </bsvc:Request_Default_Compensation_Sub_Process>
+                <bsvc:Assign_Pay_Group_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:1233557891147</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Assign_Pay_Group_Data>
+                        <bsvc:Pay_Group_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Pay_Group_Reference>
+                    </bsvc:Assign_Pay_Group_Data>
+                </bsvc:Assign_Pay_Group_Sub_Process>
+                <bsvc:Assign_Costing_Allocation_Sub_Process>
+                    <bsvc:Business_Sub_Process_Parameters>
+                        <bsvc:Auto_Complete>?</bsvc:Auto_Complete>
+                        <bsvc:Skip>?</bsvc:Skip>
+                        <bsvc:Business_Process_Comment_Data>
+                            <bsvc:Comment>?</bsvc:Comment>
+                            <bsvc:Worker_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Worker_Reference>
+                        </bsvc:Business_Process_Comment_Data>
+                        <bsvc:Business_Process_Attachment_Data>
+                            <bsvc:File_Name>?</bsvc:File_Name>
+                            <bsvc:Event_Attachment_Description>?</bsvc:Event_Attachment_Description>
+                            <bsvc:Event_Attachment_Category_Reference bsvc:Descriptor="?">
+                                <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                            </bsvc:Event_Attachment_Category_Reference>
+                            <bsvc:File>cid:833956411695</bsvc:File>
+                            <bsvc:Content_Type>?</bsvc:Content_Type>
+                        </bsvc:Business_Process_Attachment_Data>
+                    </bsvc:Business_Sub_Process_Parameters>
+                    <bsvc:Position_Costing_Allocation_Assignment_Data>
+                        <bsvc:Costing_Override_Data>
+                            <bsvc:Costing_Interval_Update_Key bsvc:Delete="?">
+                                <bsvc:Costing_Override_ID_Update_Key>?</bsvc:Costing_Override_ID_Update_Key>
+                                <bsvc:Start_Date_Update_Key>?</bsvc:Start_Date_Update_Key>
+                            </bsvc:Costing_Interval_Update_Key>
+                            <bsvc:Costing_Override_ID>?</bsvc:Costing_Override_ID>
+                            <bsvc:Start_Date>?</bsvc:Start_Date>
+                            <bsvc:End_Date>?</bsvc:End_Date>
+                            <bsvc:Costing_Allocation_Detail_Data>
+                                <bsvc:Order>?</bsvc:Order>
+                                <bsvc:Default_from_Organization_Assignment>?</bsvc:Default_from_Organization_Assignment>
+                                <bsvc:Costing_Override_Worktag_Reference bsvc:Descriptor="?">
+                                    <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                </bsvc:Costing_Override_Worktag_Reference>
+                                <bsvc:Distribution_Percent>?</bsvc:Distribution_Percent>
+                                <bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                                    <bsvc:SOC_Order>?</bsvc:SOC_Order>
+                                    <bsvc:SOC_Default_from_Organization_Assignment>?
+                                    </bsvc:SOC_Default_from_Organization_Assignment>
+                                    <bsvc:SOC_Override_Worktag_Reference bsvc:Descriptor="?">
+                                        <bsvc:ID bsvc:parent_id="?" bsvc:parent_type="?" bsvc:type="?">?</bsvc:ID>
+                                    </bsvc:SOC_Override_Worktag_Reference>
+                                    <bsvc:SOC_Distribution_Percent>?</bsvc:SOC_Distribution_Percent>
+                                </bsvc:Salary_Over_the_Cap_Costing_Allocation_Detail_Data>
+                            </bsvc:Costing_Allocation_Detail_Data>
+                        </bsvc:Costing_Override_Data>
+                        <bsvc:Costing_Allocation_Level_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Level_Reference>
+                        <bsvc:Costing_Allocation_Earning_Reference bsvc:Descriptor="?">
+                            <bsvc:ID bsvc:type="?">?</bsvc:ID>
+                        </bsvc:Costing_Allocation_Earning_Reference>
+                    </bsvc:Position_Costing_Allocation_Assignment_Data>
+                </bsvc:Assign_Costing_Allocation_Sub_Process>
+            </bsvc:Create_Position_Data>
+        </bsvc:Create_Position_Request>
     </soapenv:Body>
-    <soapenv:Header>
-        <bsvc:Workday_Common_Header>
-            <bsvc:Include_Reference_Descriptors_In_Response>?</bsvc:Include_Reference_Descriptors_In_Response>
-        </bsvc:Workday_Common_Header>
-    </soapenv:Header>
 </soapenv:Envelope>

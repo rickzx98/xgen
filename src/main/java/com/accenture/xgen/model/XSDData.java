@@ -1,10 +1,15 @@
 package com.accenture.xgen.model;
 
+import com.jamesmurty.utils.NamespaceContextImpl;
 import com.jamesmurty.utils.XMLBuilder2;
+import com.sun.xml.internal.stream.buffer.stax.NamespaceContexHelper;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
+import javax.xml.namespace.NamespaceContext;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class XSDData implements StructureData {
     private String field;
@@ -15,13 +20,16 @@ public class XSDData implements StructureData {
     private Map<String, XSDData> fieldCache;
     private Map<String, String> attributes;
     private String envelopNamespace;
+    private String prefix;
+    private String namespaceUri;
+    private static final String ROOT_TAG_REGEX = "<(\\/)?(xsd-data)>";
 
     private XSDData() {
         cache = new HashMap<String, XSDData>();
         fieldCache = new HashMap<String, XSDData>();
     }
 
-    public XSDData(String field, String value, NamedNodeMap attr) {
+    public XSDData(String field, String value, NamedNodeMap attr, String prefix, String namespaceUri) {
         this();
         this.field = field;
         this.value = value;
@@ -30,10 +38,14 @@ public class XSDData implements StructureData {
             for (int i = 0; i < attr.getLength(); i++) {
                 Node node = attr.item(i);
                 if (node.getNodeType() == Node.ATTRIBUTE_NODE) {
-                    this.attributes.put(attr.item(i).getNodeName(), attr.item(i).getTextContent());
+                    if (!attr.item(i).getTextContent().equals("unqualified")) {
+                        this.attributes.put(attr.item(i).getNodeName(), attr.item(i).getTextContent());
+                    }
                 }
             }
         }
+        this.prefix = prefix;
+        this.namespaceUri = namespaceUri;
     }
 
     public void addChild(XSDData xsdData) {
@@ -96,11 +108,26 @@ public class XSDData implements StructureData {
     public XSDData findByField(String field) {
         XSDData foundXSD = null;
         if (fieldCache.containsKey(field)) {
-            foundXSD = cache.get(field);
+            foundXSD = fieldCache.get(field);
         } else if (hasFieldOf(field)) {
             foundXSD = this;
         } else if (children != null && !children.isEmpty()) {
             foundXSD = findFieldInChildren(field);
+        }
+        if (foundXSD != null) {
+            fieldCache.put(field, foundXSD);
+        }
+        return foundXSD;
+    }
+
+    public XSDData findByFieldContains(String field) {
+        XSDData foundXSD = null;
+        if (fieldCache.containsKey(field)) {
+            foundXSD = fieldCache.get(field);
+        } else if (containsFieldOf(field)) {
+            foundXSD = this;
+        } else if (children != null && !children.isEmpty()) {
+            foundXSD = findFieldInChildrenContains(field);
         }
         if (foundXSD != null) {
             fieldCache.put(field, foundXSD);
@@ -122,6 +149,20 @@ public class XSDData implements StructureData {
         return foundXSDData;
     }
 
+    private XSDData findFieldInChildrenContains(String field) {
+        XSDData foundXSDData = null;
+        if (children != null) {
+            for (XSDData xsdData : children) {
+                if (foundXSDData == null) {
+                    foundXSDData = xsdData.findByFieldContains(field);
+                } else {
+                    break;
+                }
+            }
+        }
+        return foundXSDData;
+    }
+
     public boolean hasValueOf(String value) {
         if (this.value != null) {
             return this.value.equals(value);
@@ -131,6 +172,10 @@ public class XSDData implements StructureData {
 
     public boolean hasFieldOf(String field) {
         return this.field.equals(field);
+    }
+
+    public boolean containsFieldOf(String field) {
+        return this.field != null && this.field.toLowerCase().contains(field);
     }
 
     private boolean isEnvelope() {
@@ -161,6 +206,34 @@ public class XSDData implements StructureData {
             envelopNamespace = namespace + ":Envelope";
         }
         return envelopNamespace;
+    }
+
+    public String getXmlStartTag() {
+        StringBuilder startTag = new StringBuilder("<%s>");
+        if (isEnvelope()) {
+            startTag = new StringBuilder(String.format(startTag.toString(), getEnvelopeNamespace()));
+        } else {
+            startTag = new StringBuilder(String.format(startTag.toString(), this.field));
+        }
+
+        if (attributes != null && !attributes.isEmpty()) {
+            startTag = new StringBuilder(startTag.substring(0, startTag.length() - 1));
+            for (String attr : attributes.keySet()) {
+                startTag.append(String.format(" %s=\"%s\"", attr, attributes.get(attr)));
+            }
+            startTag.append(">");
+        }
+        return startTag.toString();
+    }
+
+    public String getXmlEndTag() {
+        String endTag = "</%s>";
+        if (isEnvelope()) {
+            endTag = String.format(endTag, getEnvelopeNamespace());
+        } else {
+            endTag = String.format(endTag, this.field);
+        }
+        return endTag;
     }
 
     @Override
@@ -198,7 +271,9 @@ public class XSDData implements StructureData {
     public String toFormattedString() {
         XMLBuilder2 xmlBuilder2 = XMLBuilder2.create("xsd-data");
         xmlBuilder(xmlBuilder2, this, this.children);
-        return xmlBuilder2.asString().replaceAll("<xsd-data>", "").replaceAll("</xsd-data>", "");
+        String xmlString = xmlBuilder2.asString();
+        String replaceTag = String.format("<(\\/)?(%s).*?>", this.field);
+        return xmlString.replaceAll(ROOT_TAG_REGEX, "").replaceAll(replaceTag, "");
     }
 
     private void xmlBuilder(XMLBuilder2 xmlBuilder2, XSDData parent, List<XSDData> children) {
@@ -216,7 +291,10 @@ public class XSDData implements StructureData {
             }
         }
         if (children != null && !children.isEmpty()) {
-            for (XSDData xsdData: children) {
+            for (XSDData xsdData : children) {
+                if (element != null) {
+                    element.namespace(xsdData.prefix, xsdData.namespaceUri);
+                }
                 xmlBuilder(element != null ? element : xmlBuilder2, xsdData, xsdData.children);
                 if (element != null) {
                     element.up();
