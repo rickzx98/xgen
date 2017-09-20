@@ -3,7 +3,6 @@ package com.accenture.xgen.generator;
 import com.accenture.xgen.model.*;
 import com.accenture.xgen.parser.CSVDataParser;
 import com.accenture.xgen.parser.XSDParser;
-import com.jamesmurty.utils.XMLBuilder2;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,8 +11,29 @@ import java.io.IOException;
 import java.util.List;
 
 public class XMLGenerator {
+    private int batchCount;
+    private CSVFilePath csvFilePath;
+    private XSDFilePath xsdFilePath;
+    private DestinationPath destinationPath;
+
+    private XMLGenerator() {
+        this.batchCount = 1000;
+    }
+
+    public XMLGenerator(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount) {
+        this(csvFilePath, xsdFilePath, destinationPath);
+        this.batchCount = batchCount;
+    }
+
     public XMLGenerator(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath) {
-        CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString());
+        this();
+        this.csvFilePath = csvFilePath;
+        this.xsdFilePath = xsdFilePath;
+        this.destinationPath = destinationPath;
+    }
+
+    public void generate() {
+        CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString(), batchCount);
         final XSDData xsdTemplate = new XSDParser(xsdFilePath.toString()).getRoot();
         final XSDData schema = xsdTemplate.findByField("schema");
         final XSDData body = xsdTemplate.findByFieldContains("body");
@@ -22,7 +42,6 @@ public class XMLGenerator {
         if (!destinationFolder.exists()) {
             destinationFolder.mkdir();
         }
-
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
             private int count = 0;
 
@@ -56,12 +75,11 @@ public class XMLGenerator {
                     }
                 }
                 nextBatch.start();
-
             }
         });
     }
 
-    public static class XMLGeneratorException extends RuntimeException {
+    private class XMLGeneratorException extends RuntimeException {
         private XMLGeneratorException(String msg) {
             super(msg);
         }
