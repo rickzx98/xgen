@@ -6,10 +6,12 @@ import java.util.Map;
 public class CSVData implements DocumentData {
     public String[] fields;
     public String[] data;
+    private long recordNumber;
 
-    private CSVData(String[] fields, String[] data) {
+    private CSVData(String[] fields, String[] data, long recordNumber) {
         this.fields = fields;
         this.data = data;
+        this.recordNumber = recordNumber;
     }
 
     public String[] getFields() {
@@ -40,15 +42,21 @@ public class CSVData implements DocumentData {
         return structure.build(structureData);
     }
 
+    public long recordNumber() {
+        return recordNumber;
+    }
+
     public static class Builder {
         private Map<String, String> mappings;
+        private long recordNumber;
 
-        private Builder() {
+        private Builder(long recordNumber) {
+            this.recordNumber = recordNumber;
             mappings = new HashMap<String, String>();
         }
 
-        public static Builder create() {
-            return new Builder();
+        public static Builder create(long recordNumber) {
+            return new Builder(recordNumber);
         }
 
         public Builder setValue(String field, String value) {
@@ -59,7 +67,7 @@ public class CSVData implements DocumentData {
         public CSVData build() {
             String fields[] = mappings.keySet().toArray(new String[mappings.keySet().size()]);
             String data[] = mappings.values().toArray(new String[mappings.values().size()]);
-            return new CSVData(fields, data);
+            return new CSVData(fields, data, recordNumber);
         }
     }
 

@@ -20,8 +20,13 @@ import java.util.Map;
 public class XSDParser {
     private XSDData root;
 
-    public XSDParser(String filepath) throws FileNotFoundException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        InputStream is = new FileInputStream(filepath);
+    public XSDParser(String filepath) {
+        InputStream is = null;
+        try {
+            is = new FileInputStream(filepath);
+        } catch (FileNotFoundException e) {
+            throw new XSDParserException(e.getMessage());
+        }
         XmlSchemaCollection schemaCol = new XmlSchemaCollection();
         XmlSchema schema = schemaCol.read(new StreamSource(is), null);
         Document[] docs = schema.getAllSchemas();
@@ -47,5 +52,11 @@ public class XSDParser {
 
     public XSDData getRoot() {
         return root;
+    }
+
+    public static class XSDParserException extends RuntimeException {
+        XSDParserException(String msg) {
+            super(msg);
+        }
     }
 }

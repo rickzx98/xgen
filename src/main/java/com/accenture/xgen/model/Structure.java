@@ -20,7 +20,7 @@ public abstract class Structure {
 
     protected abstract String construct(Map<String, String> constructedValue, StructureData structureData) throws StructureException;
 
-    public static class StructureException extends Exception {
+    public static class StructureException extends RuntimeException {
         public StructureException(String name, String msg) {
             super(String.format("%s: %s", name, msg));
         }

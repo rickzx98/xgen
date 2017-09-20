@@ -10,13 +10,14 @@ public class CSVDataTest {
 	
 	@Test
 	public void testCreateCSVData() {
-		CSVData csvData = CSVData.Builder.create().setValue("sample", "sampleValue").build();
+		CSVData csvData = CSVData.Builder.create(0).setValue("sample", "sampleValue").build();
 		String[] fields = { "sample" };
 		String[] sampleValues = { "sampleValue" };
 		Assert.assertNotNull(csvData);
 		Assert.assertArrayEquals(fields, csvData.getFields());
 		Assert.assertArrayEquals(sampleValues, csvData.getData());
 		Assert.assertEquals("Field not found", "sampleValue", csvData.getValue("sample"));
+		Assert.assertEquals(0, csvData.recordNumber());
 	}
 
 }

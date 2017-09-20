@@ -4,6 +4,7 @@ import com.accenture.xgen.model.CSVData;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -16,15 +17,26 @@ public class CSVDataParser {
     private Iterator<CSVRecord> records;
     private String[] columns;
     private int colCountAve = 0;
+    private String nameHeader;
 
-    public CSVDataParser(String filepath, int batchCount) throws IOException {
+    public CSVDataParser(String filepath, int batchCount) {
         this(filepath);
         this.batchCount = batchCount;
     }
 
-    public CSVDataParser(String filepath) throws IOException {
-        Reader in = new FileReader(filepath);
-        records = CSVFormat.DEFAULT.parse(in).iterator();
+    public CSVDataParser(String filepath) {
+        Reader in = null;
+        try {
+            in = new FileReader(filepath);
+            records = CSVFormat.DEFAULT.parse(in).iterator();
+        } catch (IOException e) {
+            throw new CSVDataParserException(e.getMessage());
+        }
+        CSVRecord firstRow = records.hasNext() ? records.next() : null;
+        if (firstRow == null) {
+            throw new HeaderDetailNotFoundException(filepath);
+        }
+        setNameHeader(firstRow);
     }
 
     public void parseByBatch(ParseBatch parseBatch) {
@@ -49,7 +61,7 @@ public class CSVDataParser {
             while (csvRecordIterator.hasNext() && count < batchCount) {
                 CSVRecord record = csvRecordIterator.next();
                 String[] colValues = record.iterator().next().split(";");
-                CSVData.Builder csvDataBuilder = CSVData.Builder.create();
+                CSVData.Builder csvDataBuilder = CSVData.Builder.create(record.getRecordNumber() - 2);
                 for (int columnFieldIndex = 0; columnFieldIndex < colCountAve; columnFieldIndex++) {
                     csvDataBuilder.setValue(columns[columnFieldIndex],
                             colValues.length > columnFieldIndex ? colValues[columnFieldIndex] : null);
@@ -86,5 +98,32 @@ public class CSVDataParser {
 
 
         public abstract void callback(List<CSVData> result, ParseBatch nextBatch);
+    }
+
+    public static class HeaderDetailNotFoundException extends RuntimeException {
+        private HeaderDetailNotFoundException(String msg) {
+            super(String.format("No header detail found in csv file %s.", msg));
+        }
+    }
+
+    public static class CSVDataParserException extends RuntimeException {
+        CSVDataParserException(String msg) {
+            super(msg);
+        }
+    }
+
+    private void setNameHeader(CSVRecord record) {
+        nameHeader = "";
+        String[] splitted = record.iterator().next().split(";");
+        for (int i = 0; i < splitted.length; i++) {
+            nameHeader += splitted[i];
+            if (i < (splitted.length - 1)) {
+                nameHeader += "_";
+            }
+        }
+    }
+
+    public String getNameHeader() {
+        return nameHeader;
     }
 }

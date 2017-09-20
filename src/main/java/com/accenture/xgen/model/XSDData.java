@@ -198,7 +198,7 @@ public class XSDData implements StructureData {
     public String toFormattedString() {
         XMLBuilder2 xmlBuilder2 = XMLBuilder2.create("xsd-data");
         xmlBuilder(xmlBuilder2, this, this.children);
-        return xmlBuilder2.asString();
+        return xmlBuilder2.asString().replaceAll("<xsd-data>", "").replaceAll("</xsd-data>", "");
     }
 
     private void xmlBuilder(XMLBuilder2 xmlBuilder2, XSDData parent, List<XSDData> children) {
@@ -216,8 +216,7 @@ public class XSDData implements StructureData {
             }
         }
         if (children != null && !children.isEmpty()) {
-            for (int i = children.size() - 1; i >= 0; i--) {
-                XSDData xsdData = children.get(i);
+            for (XSDData xsdData: children) {
                 xmlBuilder(element != null ? element : xmlBuilder2, xsdData, xsdData.children);
                 if (element != null) {
                     element.up();
