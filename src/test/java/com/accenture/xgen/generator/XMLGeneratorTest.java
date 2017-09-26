@@ -23,9 +23,9 @@ public class XMLGeneratorTest {
 
     @Test
     public void testXMLGenerator() {
-        new XMLGenerator(new CSVFilePath(csvFilePath),
+        XMLGenerator xmlGenerator = new XMLGenerator(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath));
+                new DestinationPath(destinationPath), 100, 100);
     }
 }
 

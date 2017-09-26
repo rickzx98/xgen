@@ -7,6 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -40,6 +41,10 @@ public class CSVDataParser {
 
     public void parseByBatch(ParseBatch parseBatch) {
         parseBatch.iterator(new CSVDataIterator(records)).start();
+    }
+
+    public void parseByBatch(ParseBatch parseBatch, int maxThreadCount) {
+        parseBatch.iterator(new CSVDataIterator(records), maxThreadCount).start();
     }
 
     private class CSVDataIterator {
@@ -83,20 +88,70 @@ public class CSVDataParser {
 
     public static abstract class ParseBatch {
         private CSVDataIterator csvDataIterator;
+        private int threadCount;
+        private int maxThreadCount = 5;
+
+        private ParseBatch iterator(CSVDataIterator csvDataIterator, int maxThreadCount) {
+            this.csvDataIterator = csvDataIterator;
+            this.maxThreadCount = maxThreadCount;
+            return this;
+        }
 
         private ParseBatch iterator(CSVDataIterator csvDataIterator) {
             this.csvDataIterator = csvDataIterator;
             return this;
         }
 
+        private void startBatch(final ParseBatch parseBatch) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    parseBatch.start();
+                }
+            }).start();
+        }
+
         public void start() {
-            if (csvDataIterator.getCsvRecordIterator().hasNext()) {
-                callback(csvDataIterator.next(), this);
+            try {
+                final ParseBatch thisClass = this;
+                if (thisClass.threadCount < thisClass.maxThreadCount) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (csvDataIterator.getCsvRecordIterator().hasNext()) {
+                                thisClass.threadCount++;
+                                final List<CSVData> csvDataList = new ArrayList<CSVData>(csvDataIterator.next());
+                                callback(csvDataList, thisClass);
+                                thisClass.threadCount--;
+                            } else if (thisClass.threadCount == 0) {
+                                thisClass.done();
+                            } else {
+                                startBatch(thisClass);
+                            }
+                        }
+                    }).start();
+                } else {
+                    startBatch(thisClass);
+                }
+
+            } catch (Exception e) {
+                failed(new ParseBatchException(e.getMessage()));
             }
         }
 
+        public void failed(ParseBatchException parseBatchException) {
+            throw new ParseBatchException(parseBatchException.getMessage());
+        }
+
+        public abstract void done();
 
         public abstract void callback(List<CSVData> result, ParseBatch nextBatch);
+    }
+
+    public static class ParseBatchException extends RuntimeException {
+        private ParseBatchException(String msg) {
+            super(msg);
+        }
     }
 
     public static class HeaderDetailNotFoundException extends RuntimeException {

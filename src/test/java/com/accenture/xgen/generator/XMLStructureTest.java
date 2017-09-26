@@ -35,6 +35,11 @@ public class XMLStructureTest {
         final List<String> xmls = new ArrayList<String>();
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
             @Override
+            public void done() {
+                System.out.println("completed");
+            }
+
+            @Override
             public void callback(List<CSVData> result, CSVDataParser.ParseBatch nextBatch) {
                 System.out.println("running batch");
                 for (CSVData csvData : result) {

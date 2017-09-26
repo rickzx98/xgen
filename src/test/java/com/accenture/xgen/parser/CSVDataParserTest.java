@@ -25,6 +25,7 @@ public class CSVDataParserTest {
     public void testCSVDataParser() throws IOException {
         CSVDataParser csvDataParser = new CSVDataParser(filepath, 3);
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
+            public void done(){}
             @Override
             public void callback(final List<CSVData> result, final CSVDataParser.ParseBatch nextBatch) {
                 new Thread(new Runnable() {

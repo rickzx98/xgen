@@ -15,9 +15,17 @@ public class XMLGenerator {
     private CSVFilePath csvFilePath;
     private XSDFilePath xsdFilePath;
     private DestinationPath destinationPath;
+    private boolean isDone = Boolean.FALSE;
+    private int maxThreadCount = 5;
 
     private XMLGenerator() {
         this.batchCount = 1000;
+    }
+
+    public XMLGenerator(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount, int maxThreadCount) {
+        this(csvFilePath, xsdFilePath, destinationPath);
+        this.batchCount = batchCount;
+        this.maxThreadCount = maxThreadCount;
     }
 
     public XMLGenerator(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount) {
@@ -32,8 +40,12 @@ public class XMLGenerator {
         this.destinationPath = destinationPath;
     }
 
-    public void generate() {
-        CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString(), batchCount);
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public XMLGenerator generate() {
+        final CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString(), batchCount);
         final XSDData xsdTemplate = new XSDParser(xsdFilePath.toString()).getRoot();
         final XSDData schema = xsdTemplate.findByField("schema");
         final XSDData body = xsdTemplate.findByFieldContains("body");
@@ -45,9 +57,14 @@ public class XMLGenerator {
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
             private int count = 0;
 
+            public void done() {
+                isDone = Boolean.TRUE;
+            }
+
             @Override
             public void callback(final List<CSVData> result, final CSVDataParser.ParseBatch nextBatch) {
-                File innerFileXml = new File(destinationFolder, String.format("%d.xml", ++count));
+                nextBatch.start();
+                File innerFileXml = new File(destinationFolder, String.format("%s_%d.xml", csvDataParser.getNameHeader(), ++count));
                 BufferedWriter bw = null;
                 FileWriter fw = null;
                 try {
@@ -74,9 +91,9 @@ public class XMLGenerator {
                         e.printStackTrace();
                     }
                 }
-                nextBatch.start();
             }
-        });
+        }, maxThreadCount);
+        return this;
     }
 
     private class XMLGeneratorException extends RuntimeException {

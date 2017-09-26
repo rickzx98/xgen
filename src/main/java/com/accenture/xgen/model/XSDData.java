@@ -1,15 +1,13 @@
 package com.accenture.xgen.model;
 
-import com.jamesmurty.utils.NamespaceContextImpl;
 import com.jamesmurty.utils.XMLBuilder2;
-import com.sun.xml.internal.stream.buffer.stax.NamespaceContexHelper;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import javax.xml.namespace.NamespaceContext;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class XSDData implements StructureData {
     private String field;

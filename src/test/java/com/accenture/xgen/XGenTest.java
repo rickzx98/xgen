@@ -1,5 +1,6 @@
 package com.accenture.xgen;
 
+import com.accenture.xgen.generator.XMLGenerator;
 import com.accenture.xgen.model.CSVFilePath;
 import com.accenture.xgen.model.DestinationPath;
 import com.accenture.xgen.model.XSDFilePath;
@@ -20,13 +21,17 @@ public class XGenTest {
     @Before
     public void setUp() {
         xsdFilePath = getClass().getClassLoader().getResource("Create_Position_v1.xsd").getFile();
-        csvFilePath = getClass().getClassLoader().getResource("sample-data-single.csv").getFile();
+        //csvFilePath = getClass().getClassLoader().getResource("sample-data-single.csv").getFile();
+        csvFilePath = getClass().getClassLoader().getResource("create_position.csv").getFile();
         destinationPath = "C:\\Users\\jerico.g.de.guzman\\generated-data";
     }
     @Test
     public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
+        XMLGenerator xmlGenerator = XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath));;
+                new DestinationPath(destinationPath), 1000, 100).generate();
+        while (!xmlGenerator.isDone()){
+            System.out.print('.');
+        }
     }
 }
