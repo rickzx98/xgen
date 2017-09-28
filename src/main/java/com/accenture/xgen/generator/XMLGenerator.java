@@ -17,9 +17,17 @@ public class XMLGenerator {
     private DestinationPath destinationPath;
     private boolean isDone = Boolean.FALSE;
     private int maxThreadCount = 5;
+    private int timeout = 300000;
 
     private XMLGenerator() {
         this.batchCount = 1000;
+    }
+
+    public XMLGenerator(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount, int maxThreadCount, int timeout) {
+        this(csvFilePath, xsdFilePath, destinationPath);
+        this.batchCount = batchCount;
+        this.maxThreadCount = maxThreadCount;
+        this.timeout = timeout;
     }
 
     public XMLGenerator(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount, int maxThreadCount) {
@@ -40,8 +48,20 @@ public class XMLGenerator {
         this.destinationPath = destinationPath;
     }
 
-    public boolean isDone() {
-        return isDone;
+    public void waitAround() {
+        int mili = 0;
+        while (!isDone) {
+            try {
+                if (mili < timeout) {
+                    mili++;
+                    Thread.sleep(100);
+                } else {
+                    throw new XMLGeneratorTimeoutException();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public XMLGenerator generate() {
@@ -57,6 +77,15 @@ public class XMLGenerator {
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
             private int count = 0;
 
+            @Override
+            public void failed(CSVDataParser.ParseBatchException parseBatchException) {
+                isDone = Boolean.TRUE;
+                if(destinationFolder.exists()){
+                    destinationFolder.delete();
+                }
+                throw parseBatchException;
+            }
+
             public void done() {
                 isDone = Boolean.TRUE;
             }
@@ -67,6 +96,7 @@ public class XMLGenerator {
                 File innerFileXml = new File(destinationFolder, String.format("%s_%d.xml", csvDataParser.getNameHeader(), ++count));
                 BufferedWriter bw = null;
                 FileWriter fw = null;
+                boolean toBeDeleted = Boolean.FALSE;
                 try {
                     fw = new FileWriter(innerFileXml);
                     bw = new BufferedWriter(fw);
@@ -77,7 +107,11 @@ public class XMLGenerator {
                     }
                     bw.write(body.getXmlEndTag());
                     bw.write(schema.getXmlEndTag());
+                } catch (XMLStructure.IncompatibleSchemaException c) {
+                    toBeDeleted = Boolean.TRUE;
+                    throw c;
                 } catch (IOException e) {
+                    isDone = Boolean.TRUE;
                     throw new XMLGeneratorException(e.getMessage());
                 } finally {
                     try {
@@ -86,6 +120,9 @@ public class XMLGenerator {
                         }
                         if (fw != null) {
                             fw.close();
+                        }
+                        if (toBeDeleted) {
+                            innerFileXml.delete();
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -99,6 +136,12 @@ public class XMLGenerator {
     private class XMLGeneratorException extends RuntimeException {
         private XMLGeneratorException(String msg) {
             super(msg);
+        }
+    }
+
+    private class XMLGeneratorTimeoutException extends RuntimeException {
+        private XMLGeneratorTimeoutException() {
+            super();
         }
     }
 }

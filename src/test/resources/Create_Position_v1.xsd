@@ -52,11 +52,11 @@
             <bsvc:Position_Data>
                <!--Optional:-->
                <bsvc:Position_ID>${POSITION_ID}</bsvc:Position_ID>
-               <!--Optional:-->
+               <!--Optional-->
                <bsvc:Job_Posting_Title>${JOB_POSTING_ID}</bsvc:Job_Posting_Title>
-               <!--Optional:-->
+               <!--Optional:
                <bsvc:Job_Description_Summary>?</bsvc:Job_Description_Summary>
-               <!--Optional:-->
+               Optional:-->
                <bsvc:Job_Description>?</bsvc:Job_Description>
                <!--Optional:-->
                <bsvc:Critical_Job>?</bsvc:Critical_Job>

@@ -25,13 +25,11 @@ public class XGenTest {
         csvFilePath = getClass().getClassLoader().getResource("create_position.csv").getFile();
         destinationPath = "C:\\Users\\jerico.g.de.guzman\\generated-data";
     }
+
     @Test
     public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
         XMLGenerator xmlGenerator = XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), 1000, 5).generate();
-        while (!xmlGenerator.isDone()){
-            System.out.print('.');
-        }
+                new DestinationPath(destinationPath), 1000, 10);
     }
 }

@@ -26,4 +26,13 @@ public class XGen {
             DestinationPath destinationPath, int batchCount, int maxThreadCount) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
         return new XMLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount, maxThreadCount).generate();
     }
+
+    public static XMLGenerator generateXMLFiles(
+            CSVFilePath csvFilePath,
+            XSDFilePath xsdFilePath,
+            DestinationPath destinationPath, int batchCount, int maxThreadCount, int timeout) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
+        return new XMLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount, maxThreadCount, timeout).generate();
+    }
+
+
 }

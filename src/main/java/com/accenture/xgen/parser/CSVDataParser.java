@@ -18,6 +18,7 @@ public class CSVDataParser {
     private String[] columns;
     private int colCountAve = 0;
     private String nameHeader;
+    private static final int EMPTY_THREAD = 0;
 
     public CSVDataParser(String filepath, int batchCount) {
         this(filepath);
@@ -90,6 +91,8 @@ public class CSVDataParser {
         private CSVDataIterator csvDataIterator;
         private int threadCount;
         private int maxThreadCount = 5;
+        private boolean stopped = Boolean.FALSE;
+        private String errorMessage;
 
         private ParseBatch iterator(CSVDataIterator csvDataIterator, int maxThreadCount) {
             this.csvDataIterator = csvDataIterator;
@@ -102,11 +105,11 @@ public class CSVDataParser {
             return this;
         }
 
-        private void startBatch(final ParseBatch parseBatch) {
+        private void startBatch() {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    parseBatch.start();
+                    start();
                 }
             }).start();
         }
@@ -119,32 +122,50 @@ public class CSVDataParser {
                     throw new RuntimeException(e);
                 }
             }
-            startBatch(this);
+            startBatch();
+        }
+
+        private void stop() {
+            this.stopped = Boolean.TRUE;
+        }
+
+        private void setErrorMessage(String errorMessage) {
+            this.errorMessage = errorMessage;
         }
 
         public void start() {
             try {
                 final ParseBatch thisClass = this;
-                if (thisClass.threadCount < thisClass.maxThreadCount) {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (csvDataIterator.getCsvRecordIterator().hasNext()) {
-                                thisClass.threadCount++;
-                                final List<CSVData> csvDataList = new ArrayList<CSVData>(csvDataIterator.next());
-                                callback(csvDataList, thisClass);
-                                thisClass.threadCount--;
-                            } else if (thisClass.threadCount == 0) {
-                                done();
-                            } else {
-                                waitAround();
+                if (!thisClass.stopped) {
+                    if (thisClass.threadCount < thisClass.maxThreadCount) {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    if (csvDataIterator.getCsvRecordIterator().hasNext()) {
+                                        thisClass.threadCount++;
+                                        callback(csvDataIterator.next(), thisClass);
+                                        thisClass.threadCount--;
+                                    } else if (thisClass.threadCount == EMPTY_THREAD) {
+                                        thisClass.done();
+                                    } else {
+                                        thisClass.waitAround();
+                                    }
+                                } catch (Exception e) {
+                                    thisClass.stop();
+                                    thisClass.threadCount--;
+                                    thisClass.setErrorMessage(e.getMessage());
+                                }
                             }
-                        }
-                    }).start();
+                        }).start();
+                    } else {
+                        thisClass.waitAround();
+                    }
+                } else if (thisClass.threadCount > 0) {
+                    thisClass.waitAround();
                 } else {
-                    waitAround();
+                    failed(new ParseBatchException(this.errorMessage));
                 }
-
             } catch (Exception e) {
                 failed(new ParseBatchException(e.getMessage()));
             }
