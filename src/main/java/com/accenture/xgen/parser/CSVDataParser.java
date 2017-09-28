@@ -111,6 +111,17 @@ public class CSVDataParser {
             }).start();
         }
 
+        private void waitAround() {
+            while (threadCount > maxThreadCount) {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            startBatch(this);
+        }
+
         public void start() {
             try {
                 final ParseBatch thisClass = this;
@@ -124,14 +135,14 @@ public class CSVDataParser {
                                 callback(csvDataList, thisClass);
                                 thisClass.threadCount--;
                             } else if (thisClass.threadCount == 0) {
-                                thisClass.done();
+                                done();
                             } else {
-                                startBatch(thisClass);
+                                waitAround();
                             }
                         }
                     }).start();
                 } else {
-                    startBatch(thisClass);
+                    waitAround();
                 }
 
             } catch (Exception e) {

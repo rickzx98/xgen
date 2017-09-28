@@ -29,7 +29,7 @@ public class XGenTest {
     public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
         XMLGenerator xmlGenerator = XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), 1000, 100).generate();
+                new DestinationPath(destinationPath), 1000, 5).generate();
         while (!xmlGenerator.isDone()){
             System.out.print('.');
         }
