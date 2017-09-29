@@ -35,7 +35,7 @@ public class Main {
 
 ```
 
-Note: To run the generator on a single-threaded application invoke the method xmlGenerator.generate().waitAround() to wait for the process to finish before moving on to the next line.
+Note: To run the generator on a single thread application invoke the method xmlGenerator.generate().waitAround() to wait for the process to finish before moving on to the next line.
 By default the method will wait for 5 minutes beyond that it will throw an XMLGeneratorTimeoutException. 
 
 
