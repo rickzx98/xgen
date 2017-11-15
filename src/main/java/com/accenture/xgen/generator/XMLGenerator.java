@@ -8,6 +8,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class XMLGenerator {
@@ -64,13 +66,19 @@ public class XMLGenerator {
         }
     }
 
+    private String getFormattedFolderName(String nameHeader) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        return String.format("%s_%s_%s_%s", nameHeader, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND));
+    }
+
     public XMLGenerator generate() {
         final CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString(), batchCount);
         final XSDData xsdTemplate = new XSDParser(xsdFilePath.toString()).getRoot();
         final XSDData schema = xsdTemplate.findByField("schema");
         final XSDData body = xsdTemplate.findByFieldContains("body");
 
-        final File destinationFolder = new File(destinationPath.toFile(), csvDataParser.getNameHeader());
+        final File destinationFolder = new File(destinationPath.toFile(), getFormattedFolderName(csvDataParser.getNameHeader()));
         if (!destinationFolder.exists()) {
             destinationFolder.mkdir();
         }
@@ -80,7 +88,7 @@ public class XMLGenerator {
             @Override
             public void failed(CSVDataParser.ParseBatchException parseBatchException) {
                 isDone = Boolean.TRUE;
-                if(destinationFolder.exists()){
+                if (destinationFolder.exists()) {
                     destinationFolder.delete();
                 }
                 throw parseBatchException;
