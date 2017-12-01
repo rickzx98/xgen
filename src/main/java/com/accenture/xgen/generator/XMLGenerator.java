@@ -20,7 +20,7 @@ public class XMLGenerator {
     private boolean isDone = Boolean.FALSE;
     private int maxThreadCount = 5;
     private int timeout = 300000;
-
+    private String splitter;
     private XMLGenerator() {
         this.batchCount = 1000;
     }
@@ -73,7 +73,7 @@ public class XMLGenerator {
     }
 
     public XMLGenerator generate() {
-        final CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString(), batchCount);
+        final CSVDataParser csvDataParser = new CSVDataParser(csvFilePath.toString(), batchCount, this.splitter);
         final XSDData xsdTemplate = new XSDParser(xsdFilePath.toString()).getRoot();
         final XSDData schema = xsdTemplate.findByField("schema");
         final XSDData body = xsdTemplate.findByFieldContains("body");
@@ -151,5 +151,10 @@ public class XMLGenerator {
         private XMLGeneratorTimeoutException() {
             super();
         }
+    }
+
+    public XMLGenerator separator(String splitter) {
+        this.splitter = splitter;
+        return this;
     }
 }

@@ -19,13 +19,16 @@ public class CSVDataParser {
     private int colCountAve = 0;
     private String nameHeader;
     private static final int EMPTY_THREAD = 0;
+    private static final String SPLITTER = ";";
+    private String splitter;
 
-    public CSVDataParser(String filepath, int batchCount) {
-        this(filepath);
+    public CSVDataParser(String filepath, int batchCount, String splitter) {
+        this(filepath, splitter);
         this.batchCount = batchCount;
     }
 
-    public CSVDataParser(String filepath) {
+    public CSVDataParser(String filepath, String splitter) {
+        this.splitter = splitter != null ? splitter : SPLITTER;
         Reader in = null;
         try {
             in = new FileReader(filepath);
@@ -65,7 +68,7 @@ public class CSVDataParser {
             batches = new LinkedList<CSVData>();
             while (csvRecordIterator.hasNext() && count < batchCount) {
                 CSVRecord record = csvRecordIterator.next();
-                String[] colValues = record.iterator().next().split(";");
+                String[] colValues = record.iterator().next().split(splitter);
                 CSVData.Builder csvDataBuilder = CSVData.Builder.create(record.getRecordNumber() - 2);
                 for (int columnFieldIndex = 0; columnFieldIndex < colCountAve; columnFieldIndex++) {
                     csvDataBuilder.setValue(columns[columnFieldIndex],
@@ -200,7 +203,7 @@ public class CSVDataParser {
 
     private void setNameHeader(CSVRecord record) {
         nameHeader = "";
-        String[] splitted = record.iterator().next().split(";");
+        String[] splitted = record.iterator().next().split(splitter);
         for (int i = 0; i < splitted.length; i++) {
             nameHeader += splitted[i];
             if (i < (splitted.length - 1)) {

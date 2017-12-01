@@ -31,7 +31,7 @@ public class XMLStructureTest {
     @Test
     public void testXmlStructure() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
         final XSDData xsdRoot = new XSDParser(xsdFilePath).getRoot();
-        CSVDataParser csvDataParser = new CSVDataParser(csvFilePath);
+        CSVDataParser csvDataParser = new CSVDataParser(csvFilePath,null);
         final List<String> xmls = new ArrayList<String>();
         csvDataParser.parseByBatch(new CSVDataParser.ParseBatch() {
             @Override

@@ -64,7 +64,7 @@ public class Main {
                 new XSDFilePath(xsdFilePath),
                 new DestinationPath(destinationPath), batchcount: 1000, maxThreadCount: 10, timeout: 300000);
         
-        xmlGenerator.generate();
+        xmlGenerator.separator("\\|").generate();
 
     }
 }
