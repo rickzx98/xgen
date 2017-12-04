@@ -58,14 +58,14 @@ public class Main {
         String xsdFilePath = "C:\\Users\\jerico.g.de.guzman\\generated-data\\Create_Position_v1.xsd";
         String csvFilePath = "C:\\Users\\jerico.g.de.guzman\\generated-data\\create_position.csv";
         String destinationPath = "C:\\Users\\jerico.g.de.guzman\\generated-data";
-
+        
+        XGen.separator("\\|");
+        
         XMLGenerator xmlGenerator = XGen.generateXMLFiles(
                 new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
                 new DestinationPath(destinationPath), batchcount: 1000, maxThreadCount: 10, timeout: 300000);
         
-        xmlGenerator.separator("\\|").generate();
-
     }
 }
 
