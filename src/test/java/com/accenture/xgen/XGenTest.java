@@ -1,8 +1,8 @@
 package com.accenture.xgen;
 
-import com.accenture.xgen.generator.XMLGenerator;
 import com.accenture.xgen.model.CSVFilePath;
 import com.accenture.xgen.model.DestinationPath;
+import com.accenture.xgen.model.Separator;
 import com.accenture.xgen.model.XSDFilePath;
 import org.apache.ws.commons.schema.XmlSchemaSerializer;
 import org.junit.Before;
@@ -28,9 +28,10 @@ public class XGenTest {
 
     @Test
     public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-/*        XGen.separator("\\|");
+/*        XGen.separator("\\|");*/
+
         XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), 1000, 10).waitAround();*/
+                new DestinationPath(destinationPath), 1000, 10, new Separator("\\|")).waitAround();
     }
 }

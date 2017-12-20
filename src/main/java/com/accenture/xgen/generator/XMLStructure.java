@@ -8,15 +8,17 @@ import java.util.Map;
 
 public class XMLStructure extends Structure {
     protected String construct(Map<String, String> constructedValue, StructureData structureData) throws StructureException {
+        ((XSDData) structureData).clearNewAttributes();
         for (String field : constructedValue.keySet()) {
-            StructureData xsdDoc = structureData.findByValue(String.format("${%s}", field));
+            String keyword = String.format("${%s}", field);
+            ((XSDData) structureData).addAttributeValue(keyword, constructedValue.get(field));
+            StructureData xsdDoc = structureData.findByValue(keyword);
             if (xsdDoc == null) {
                 throw new IncompatibleSchemaException(String.format("Cannot find %s.", field));
             }
             xsdDoc.setValue(constructedValue.get(field));
         }
-
-        return ((XSDData)structureData).findByFieldContains("body").toFormattedString();
+        return ((XSDData) structureData).findByFieldContains("body").toFormattedString();
     }
 
     public static class IncompatibleSchemaException extends StructureException {

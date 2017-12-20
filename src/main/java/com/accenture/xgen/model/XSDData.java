@@ -21,10 +21,12 @@ public class XSDData implements StructureData {
     private String prefix;
     private String namespaceUri;
     private static final String ROOT_TAG_REGEX = "<(\\/)?(xsd-data)>";
+    private Map<String, String> newAttributes;
 
     private XSDData() {
         cache = new HashMap<String, XSDData>();
         fieldCache = new HashMap<String, XSDData>();
+        newAttributes = new HashMap<String, String>();
     }
 
     public XSDData(String field, String value, NamedNodeMap attr, String prefix, String namespaceUri) {
@@ -274,6 +276,13 @@ public class XSDData implements StructureData {
         return xmlString.replaceAll(ROOT_TAG_REGEX, "").replaceAll(replaceTag, "");
     }
 
+    private String getAttributeValue(String value) {
+        if (newAttributes.keySet().contains(value)) {
+            return newAttributes.get(value);
+        }
+        return value;
+    }
+
     private void xmlBuilder(XMLBuilder2 xmlBuilder2, XSDData parent, List<XSDData> children) {
         XMLBuilder2 element = null;
         if (!parent.field.equals("document")) {
@@ -285,7 +294,7 @@ public class XSDData implements StructureData {
         }
         if (element != null && parent.attributes != null) {
             for (String field : parent.attributes.keySet()) {
-                element.a(field, parent.attributes.get(field));
+                element.a(field, getAttributeValue(parent.attributes.get(field)));
             }
         }
         if (children != null && !children.isEmpty()) {
@@ -312,6 +321,24 @@ public class XSDData implements StructureData {
         if (children != null && !children.isEmpty()) {
             for (XSDData xsdData : children) {
                 xsdData.clear();
+            }
+        }
+    }
+
+    public void addAttributeValue(String field, String value) {
+        this.newAttributes.put(field, value);
+        if (children != null && !children.isEmpty()) {
+            for (XSDData xsdData : children) {
+                xsdData.addAttributeValue(field, value);
+            }
+        }
+    }
+
+    public void clearNewAttributes() {
+        this.newAttributes.clear();
+        if (children != null && !children.isEmpty()) {
+            for (XSDData xsdData : children) {
+                xsdData.clearNewAttributes();
             }
         }
     }
