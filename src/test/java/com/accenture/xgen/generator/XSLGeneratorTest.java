@@ -1,19 +1,15 @@
-package com.accenture.xgen;
+package com.accenture.xgen.generator;
 
 import com.accenture.xgen.model.CSVFilePath;
 import com.accenture.xgen.model.DestinationPath;
-import com.accenture.xgen.model.Separator;
 import com.accenture.xgen.model.XSDFilePath;
-import org.apache.ws.commons.schema.XmlSchemaSerializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.io.IOException;
-
 @RunWith(JUnit4.class)
-public class XGenTest {
+public class XSLGeneratorTest {
     private String xsdFilePath;
     private String csvFilePath;
     private String destinationPath;
@@ -27,9 +23,10 @@ public class XGenTest {
     }
 
     @Test
-    public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        /*XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
+    public void testGenerator(){
+        XSLGenerator xslGenerator  = new XSLGenerator(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), 1000, 10, new Separator("\\|")).waitAround();*/
+                new DestinationPath(destinationPath), 100, 100);
     }
+
 }

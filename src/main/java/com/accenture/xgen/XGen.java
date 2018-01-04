@@ -1,6 +1,6 @@
 package com.accenture.xgen;
 
-import com.accenture.xgen.generator.XMLGenerator;
+import com.accenture.xgen.generator.XSLGenerator;
 import com.accenture.xgen.model.CSVFilePath;
 import com.accenture.xgen.model.DestinationPath;
 import com.accenture.xgen.model.Separator;
@@ -10,34 +10,39 @@ import org.apache.ws.commons.schema.XmlSchemaSerializer;
 import java.io.IOException;
 
 public class XGen {
-    public static XMLGenerator generateXMLFiles(CSVFilePath csvFilePath, XSDFilePath xsdFilePath,
+    public static XSLGenerator generateXMLFiles(CSVFilePath csvFilePath, XSDFilePath xsdFilePath,
                                                 DestinationPath destinationPath, Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        return new XMLGenerator(csvFilePath, xsdFilePath, destinationPath)
+        return new XSLGenerator(csvFilePath, xsdFilePath, destinationPath)
                 .separator(separator.toString()).generate();
     }
 
-    public static XMLGenerator generateXMLFiles(
+    public static XSLGenerator generateXMLFiles(
             CSVFilePath csvFilePath,
             XSDFilePath xsdFilePath,
             DestinationPath destinationPath, int batchCount,
             Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        return new XMLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount)
+        return new XSLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount)
                 .separator(separator.toString()).generate();
     }
 
-    public static XMLGenerator generateXMLFiles(
+    public static XSLGenerator generateXMLFiles(
             CSVFilePath csvFilePath,
             XSDFilePath xsdFilePath,
-            DestinationPath destinationPath, int batchCount, int maxThreadCount, Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        return new XMLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount, maxThreadCount)
+            DestinationPath destinationPath,
+            int batchCount,
+            int maxThreadCount,
+            Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
+        return new XSLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount, maxThreadCount)
                 .separator(separator.toString()).generate();
     }
 
-    public static XMLGenerator generateXMLFiles(
+    public static XSLGenerator generateXMLFiles(
             CSVFilePath csvFilePath,
             XSDFilePath xsdFilePath,
-            DestinationPath destinationPath, int batchCount, int maxThreadCount, int timeout, Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        return new XMLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount, maxThreadCount, timeout)
+            DestinationPath destinationPath, int batchCount,
+            int maxThreadCount, int timeout,
+            Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
+        return new XSLGenerator(csvFilePath, xsdFilePath, destinationPath, batchCount, maxThreadCount, timeout)
                 .separator(separator.toString()).generate();
     }
 

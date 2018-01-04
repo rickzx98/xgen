@@ -6,15 +6,6 @@ CSV to XML generator
 ### Basic Usage 
 
 ```java
-  
-import com.accenture.xgen.XGen;
-import com.accenture.xgen.generator.XMLGenerator;
-import com.accenture.xgen.model.CSVFilePath;
-import com.accenture.xgen.model.DestinationPath;
-import com.accenture.xgen.model.XSDFilePath;
-import org.apache.ws.commons.schema.XmlSchemaSerializer;
-
-import java.io.IOException;
 
 public class Main {
 
@@ -26,7 +17,7 @@ public class Main {
         XMLGenerator xmlGenerator = XGen.generateXMLFiles(
                 new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath));
+                new DestinationPath(destinationPath), 100, new Separator("\\|");
         
         xmlGenerator.generate();
 
@@ -36,39 +27,30 @@ public class Main {
 ```
 
 Note: To run the generator on a single thread application invoke the method xmlGenerator.generate().waitAround() to wait for the process to finish before moving on to the next line.
-By default the method will wait for 5 minutes beyond that it will throw an XMLGeneratorTimeoutException. 
+By default the method will wait for 5 minutes beyond that it will throw an XMLGeneratorTimeoutException.
+
+### XGen
+
+#### Methods
+Modifier and Type     | Method and Description
+----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+static XSLGenerator   | generateXMLFiles(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException
+static XSLGenerator   | generateXMLFiles(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount, int maxThreadCount, Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException
+static XSLGenerator   | generateXMLFiles(CSVFilePath csvFilePath, XSDFilePath xsdFilePath, DestinationPath destinationPath, int batchCount, int maxThreadCount, int timeout, Separator separator) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException
 
 
-### With batch count, max thread and timeout.
 
-```java
-  
-import com.accenture.xgen.XGen;
-import com.accenture.xgen.generator.XMLGenerator;
-import com.accenture.xgen.model.CSVFilePath;
-import com.accenture.xgen.model.DestinationPath;
-import com.accenture.xgen.model.XSDFilePath;
-import org.apache.ws.commons.schema.XmlSchemaSerializer;
+### Support for "if" element node
 
-import java.io.IOException;
+attribute | Description
+----------|-------------
+test      | handles the javascript condition logic (must always return boolean)
 
-public class Main {
-
-    public static void main(String... args) throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        String xsdFilePath = "C:\\Users\\jerico.g.de.guzman\\generated-data\\Create_Position_v1.xsd";
-        String csvFilePath = "C:\\Users\\jerico.g.de.guzman\\generated-data\\create_position.csv";
-        String destinationPath = "C:\\Users\\jerico.g.de.guzman\\generated-data";
-        
-        XGen.separator("\\|");
-        
-        XMLGenerator xmlGenerator = XGen.generateXMLFiles(
-                new CSVFilePath(csvFilePath),
-                new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), batchcount: 1000, maxThreadCount: 10, timeout: 300000);
-        
-    }
-}
-
+```xsd
+         <if test="${SUP_ORG_REF != 'N/A'}">
+            <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="${JOB_POSTING_ID}">
+            <!--Zero or more repetitions:-->
+            <bsvc:ID bsvc:type="?">${SUP_ORG_REF}</bsvc:ID>
+            </bsvc:Supervisory_Organization_Reference>
+        </if>
 ```
-
-
