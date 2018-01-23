@@ -23,4 +23,8 @@ public class XSLParserTest {
 
         System.out.println(root.toFormattedString());
     }
+
+    public void testXSModelParser() throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+
+    }
 }

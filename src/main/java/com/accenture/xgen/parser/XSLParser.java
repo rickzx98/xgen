@@ -10,17 +10,18 @@ import org.apache.ws.commons.schema.XmlSchemaCollection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
-import javax.xml.transform.stream.StreamSource;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class XSLParser {
     private List<StructureData> parsedData;
     private StructureData root;
+    private static final String REG_EXP = "\\s(.*)(\'.*\'>)";
 
     public XSLParser(String filepath) {
         InputStream is = null;
@@ -29,8 +30,51 @@ public class XSLParser {
         } catch (FileNotFoundException e) {
             throw new XSLParserException(e.getMessage());
         }
+        boolean foundKeywords = Boolean.FALSE;
+        StringBuilder schemaBuilder = new StringBuilder();
+        try {
+            FileReader fileReader = new FileReader(filepath);
+            BufferedReader br = new BufferedReader(fileReader);
+            String sCurrentLine = null;
+            while ((sCurrentLine = br.readLine()) != null) {
+                if (sCurrentLine.contains("<#if")) {
+                    Pattern pattern = Pattern.compile(REG_EXP);
+                    Matcher matcher = pattern.matcher(sCurrentLine);
+                    String expression = null;
+                    while (matcher.find()) {
+                        expression = matcher.group(0)
+                                .replace("<#if", "")
+                                .replace(" ", "")
+                                .replace(">", "");
+                        if (!expression.contains("!") && expression.contains("=")) {
+                            expression = expression.replace("=", "===");
+                        }
+                    }
+                    String newExp = String.format(" test=\"\\$\\{%s\\}\">", expression);
+                    sCurrentLine = sCurrentLine
+                            .replace("#if", "if")
+                            .replaceAll(REG_EXP, newExp);
+                    sCurrentLine = "<if" + sCurrentLine;
+                    foundKeywords = Boolean.TRUE;
+                } else if (sCurrentLine.contains("</#if>")) {
+                    sCurrentLine = sCurrentLine.replace("#if", "if");
+                }
+                schemaBuilder.append(sCurrentLine);
+            }
+        } catch (FileNotFoundException e) {
+            throw new XSLParserException(e.getMessage());
+        } catch (IOException e) {
+            throw new XSLParserException(e.getMessage());
+        }
+
         XmlSchemaCollection schemaCol = new XmlSchemaCollection();
-        XmlSchema schema = schemaCol.read(new StreamSource(is), null);
+        XmlSchema schema = null;
+        if (foundKeywords) {
+            schema = schemaCol.read(new StringReader(schemaBuilder.toString()), null);
+        } else {
+            schema = schemaCol.read(new InputSource(is), null);
+        }
+
         Document[] docs = schema.getAllSchemas();
         parsedData = new ArrayList<StructureData>();
         for (Document doc : docs) {

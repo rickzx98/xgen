@@ -28,8 +28,8 @@ public class XGenTest {
 
     @Test
     public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        /*XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
+        XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), 1000, 10, new Separator("\\|")).waitAround();*/
+                new DestinationPath(destinationPath), 1000, 10, new Separator("\\|")).waitAround();
     }
 }

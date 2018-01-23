@@ -53,7 +53,10 @@
                 </bsvc:Position_Request_Reason_Reference>
                 <bsvc:Position_Data>
                     <!--Optional:-->
-                    <bsvc:Position_ID>${POSITION_ID}</bsvc:Position_ID>
+
+                    <#if POSITION_ID='N/A'>
+                        <bsvc:Position_ID>${POSITION_ID}</bsvc:Position_ID>
+                    </#if>
                     <!--Optional-->
                     <bsvc:Job_Posting_Title>${JOB_POSTING_ID}</bsvc:Job_Posting_Title>
                     <!--Optional:
