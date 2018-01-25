@@ -78,7 +78,7 @@ public class XSLParser {
         Document[] docs = schema.getAllSchemas();
         parsedData = new ArrayList<StructureData>();
         for (Document doc : docs) {
-            root = new XSLElementData(doc.getNodeName(), doc.getNodeValue(), doc.getPrefix(), doc.getNamespaceURI(), null);
+            root = new XSLElementData(doc.getNodeName(), doc.getTextContent(), doc.getPrefix(), doc.getNamespaceURI(), null);
             parseNodeBody(doc.getChildNodes(), (XSLElementData) root);
         }
     }
@@ -91,9 +91,9 @@ public class XSLParser {
             StructureData structureData = null;
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 if (node.getNodeName().equals(XSLIFData.KEYWORD)) {
-                    structureData = new XSLIFData(node.getNodeName(), node.getNodeValue(), node.getPrefix(), node.getNamespaceURI(), parent);
+                    structureData = new XSLIFData(node.getNodeName(), node.getTextContent(), node.getPrefix(), node.getNamespaceURI(), parent);
                 } else {
-                    structureData = new XSLElementData(node.getNodeName(), node.getNodeValue(),
+                    structureData = new XSLElementData(node.getNodeName(), node.getTextContent(),
                             node.getPrefix(), node.getNamespaceURI(), parent);
                 }
                 addAttributes(node, structureData);

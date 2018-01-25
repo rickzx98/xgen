@@ -20,8 +20,8 @@ public class XGenTest {
 
     @Before
     public void setUp() {
-        xsdFilePath = getClass().getClassLoader().getResource("Create_Position_v1.xsd").getFile();
-        csvFilePath = getClass().getClassLoader().getResource("sample-data-single-pipe.csv").getFile();
+        xsdFilePath = getClass().getClassLoader().getResource("PERSONAL_INFO.XSD").getFile();
+        csvFilePath = getClass().getClassLoader().getResource("PERSONAL_INFO_2018-01-12.csv").getFile();
         //csvFilePath = getClass().getClassLoader().getResource("create_position.csv").getFile();
         destinationPath = "C:\\Users\\jerico.g.de.guzman\\generated-data";
     }
