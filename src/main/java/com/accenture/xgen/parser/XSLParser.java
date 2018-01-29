@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class XSLParser {
     private List<StructureData> parsedData;
     private StructureData root;
-    private static final String REG_EXP = "\\s(.*)(\'.*\'>)";
+    private static final String REG_EXP = "\\s(.*)(\".*\">)";
 
     public XSLParser(String filepath) {
         InputStream is = null;
@@ -45,12 +45,13 @@ public class XSLParser {
                         expression = matcher.group(0)
                                 .replace("<#if", "")
                                 .replace(" ", "")
-                                .replace(">", "");
+                                .replace(">", "")
+                                .replaceAll("\t", "");
                         if (!expression.contains("!") && expression.contains("=")) {
                             expression = expression.replace("=", "===");
                         }
                     }
-                    String newExp = String.format(" test=\"\\$\\{%s\\}\">", expression);
+                    String newExp = String.format(" test=\"\\$\\{%s\\}\">", expression.replaceAll("\"", "'"));
                     sCurrentLine = sCurrentLine
                             .replace("#if", "if")
                             .replaceAll(REG_EXP, newExp);

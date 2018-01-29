@@ -10,7 +10,9 @@
 				<bsvc:Personal_Information_Data>
 						<bsvc:Date_of_Birth>${DATE_OF_BIRTH}</bsvc:Date_of_Birth>
 					<bsvc:Gender_Reference>
+						<#if GENDER!="null">
 							<bsvc:ID bsvc:type="Gender_Code">${GENDER}</bsvc:ID>
+					  	</#if>
 					</bsvc:Gender_Reference>
 					<bsvc:Marital_Status_Reference>
 							<bsvc:ID bsvc:type="Marital_Status_ID">${MARITAL_STATUS}</bsvc:ID>
