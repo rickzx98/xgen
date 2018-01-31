@@ -202,14 +202,7 @@ public class CSVDataParser {
     }
 
     private void setNameHeader(CSVRecord record) {
-        nameHeader = "";
-        String[] splitted = record.iterator().next().split(splitter);
-        for (int i = 0; i < splitted.length; i++) {
-            nameHeader += splitted[i];
-            if (i < (splitted.length - 1)) {
-                nameHeader += "_";
-            }
-        }
+        nameHeader = record.iterator().next().split(splitter)[0];
     }
 
     public String getNameHeader() {

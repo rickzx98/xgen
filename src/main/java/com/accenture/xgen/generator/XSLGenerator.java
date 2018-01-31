@@ -74,7 +74,9 @@ public class XSLGenerator {
     private String getFormattedFolderName(String nameHeader) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
-        return String.format("%s_%s_%s_%s", nameHeader, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND));
+        return String.format("%s_%s_%s_%s_%s_%s_%s", nameHeader,
+                calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), calendar.get(Calendar.SECOND));
     }
 
     public XSLGenerator generate() {
