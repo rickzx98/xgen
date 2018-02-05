@@ -1,0 +1,30 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bsvc="urn:com.workday/bsvc">
+	<soapenv:Header>
+	</soapenv:Header>
+	<soapenv:Body>
+		<bsvc:Change_Personal_Information_Request bsvc:version="${version}">
+			<bsvc:Change_Personal_Information_Data>
+				<bsvc:Worker_Reference>
+					<bsvc:ID bsvc:type="${WORKER_TYPE}">${WORKER_ID}</bsvc:ID>
+				</bsvc:Worker_Reference>
+				<bsvc:Personal_Information_Data>
+						<bsvc:Date_of_Birth>${DATE_OF_BIRTH}</bsvc:Date_of_Birth>
+					<bsvc:Gender_Reference>
+						<#if GENDER!="null">
+							<bsvc:ID bsvc:type="Gender_Code">${GENDER}</bsvc:ID>
+					  	</#if>
+					</bsvc:Gender_Reference>
+					<bsvc:Marital_Status_Reference>
+							<bsvc:ID bsvc:type="Marital_Status_ID">${MARITAL_STATUS}</bsvc:ID>
+					</bsvc:Marital_Status_Reference>
+					<bsvc:Citizenship_Reference>
+							<bsvc:ID bsvc:type="Citizenship_Status_Code">${CITIZENSHIP}</bsvc:ID>
+					</bsvc:Citizenship_Reference>
+					<bsvc:Ethnicity_Reference>
+							<bsvc:ID bsvc:type="Ethnicity_ID">${ETHNICITY}</bsvc:ID>
+					</bsvc:Ethnicity_Reference>
+				</bsvc:Personal_Information_Data>
+			</bsvc:Change_Personal_Information_Data>
+		</bsvc:Change_Personal_Information_Request>
+	</soapenv:Body>
+</soapenv:Envelope>
