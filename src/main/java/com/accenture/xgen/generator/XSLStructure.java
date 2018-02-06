@@ -21,4 +21,10 @@ public class XSLStructure extends Structure {
         }
         return xslStructure.toString();
     }
+
+    public static class IncompatibleSchemaException extends StructureException {
+        private IncompatibleSchemaException(String msg) {
+            super("IncompatibleSchema", msg);
+        }
+    }
 }

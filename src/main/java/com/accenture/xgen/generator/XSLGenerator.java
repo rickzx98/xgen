@@ -131,7 +131,7 @@ public class XSLGenerator {
                     }
                     bw.write(body.getXmlEndTag());
                     bw.write(schema.getXmlEndTag());
-                } catch (XMLStructure.IncompatibleSchemaException c) {
+                } catch (XSLStructure.IncompatibleSchemaException c) {
                     toBeDeleted = Boolean.TRUE;
                     throw c;
                 } catch (IOException e) {
