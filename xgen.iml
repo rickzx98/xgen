@@ -15,11 +15,8 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.apache.ws.commons.schema:XmlSchema:1.4.7" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.4" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.ws.commons.schema:XmlSchema:1.4.7" level="project" />
     <orderEntry type="library" name="Maven: com.jamesmurty.utils:java-xmlbuilder:1.2" level="project" />
     <orderEntry type="library" name="Maven: net.iharder:base64:2.3.8" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
   </component>
 </module>
