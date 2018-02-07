@@ -2,6 +2,7 @@ package com.accenture.xgen.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class CSVData implements DocumentData {
     public String[] fields;
@@ -42,7 +43,7 @@ public class CSVData implements DocumentData {
                 value = placeHolderDefaultsValueMap.get(field);
               }
             }
-            structure.put(field, value);
+            structure.put(field, StringEscapeUtils.escapeHtml(value));
         }
         return structure.build(structureData);
     }
