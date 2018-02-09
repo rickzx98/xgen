@@ -2,7 +2,8 @@ package com.accenture.xgen.model;
 
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
+//import org.springframework.web.util.HtmlUtils;
 
 public class CSVData implements DocumentData {
     public String[] fields;
@@ -43,7 +44,7 @@ public class CSVData implements DocumentData {
                 value = placeHolderDefaultsValueMap.get(field);
               }
             }
-            structure.put(field, StringEscapeUtils.escapeHtml(value));
+            structure.put(field, StringEscapeUtils.escapeXml10(value));
         }
         return structure.build(structureData);
     }

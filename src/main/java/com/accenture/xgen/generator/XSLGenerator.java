@@ -12,6 +12,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -121,8 +123,9 @@ public class XSLGenerator {
                 FileWriter fw = null;
                 boolean toBeDeleted = Boolean.FALSE;
                 try {
-                    fw = new FileWriter(innerFileXml);
-                    bw = new BufferedWriter(fw);
+                    bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(innerFileXml), "UTF-8"));
+                    //fw = new FileWriter(innerFileXml);
+                    //bw = new BufferedWriter(fw);
                     bw.write(schema.getXmlStartTag());
                     bw.write(header.toFormattedString());
                     bw.write(body.getXmlStartTag());
@@ -142,9 +145,9 @@ public class XSLGenerator {
                         if (bw != null) {
                             bw.close();
                         }
-                        if (fw != null) {
-                            fw.close();
-                        }
+                        //if (fw != null) {
+                        //    fw.close();
+                        //}
                         if (toBeDeleted) {
                             innerFileXml.delete();
                         }
