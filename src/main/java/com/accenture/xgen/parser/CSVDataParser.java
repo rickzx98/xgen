@@ -7,6 +7,9 @@ import org.apache.commons.csv.CSVParser;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,8 +36,8 @@ public class CSVDataParser {
         this.splitter = splitter != null ? splitter : SPLITTER;
         Reader in = null;
         try {
-            in = new FileReader(filepath);
-          
+            InputStream inputStream = new FileInputStream(filepath);
+            in = new InputStreamReader(inputStream, "UTF-8");
             CSVParser parser = CSVFormat.EXCEL.newFormat(';').withQuote('"').parse(in);
             List<CSVRecord> list = parser.getRecords();
             list.remove(list.size() - 1);
