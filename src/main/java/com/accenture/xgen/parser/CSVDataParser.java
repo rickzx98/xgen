@@ -64,15 +64,21 @@ public class CSVDataParser {
     }
 
     private class CSVDataIterator {
+        
         private Iterator<CSVRecord> csvRecordIterator;
+        
         private LinkedList<CSVData> batches;
 
         private CSVDataIterator(Iterator<CSVRecord> csvRecordIterator) {
+          synchronized (csvRecordIterator) {
             this.csvRecordIterator = csvRecordIterator;
+          }
         }
 
         private Iterator<CSVRecord> getCsvRecordIterator() {
+          synchronized (csvRecordIterator) {
             return csvRecordIterator;
+          }
         }
 
         private List<CSVData> next() {
@@ -104,7 +110,7 @@ public class CSVDataParser {
 
     public static abstract class ParseBatch {
         private CSVDataIterator csvDataIterator;
-        private int threadCount;
+        public int threadCount;
         private int maxThreadCount = 5;
         private boolean stopped = Boolean.FALSE;
         private String errorMessage;
@@ -153,17 +159,21 @@ public class CSVDataParser {
                 final ParseBatch thisClass = this;
                 if (!thisClass.stopped) {
                     if (thisClass.threadCount < thisClass.maxThreadCount) {
+                      System.out.println("Thread created " + thisClass.threadCount);
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 try {
                                     if (csvDataIterator.getCsvRecordIterator().hasNext()) {
                                         thisClass.threadCount++;
+                                        System.out.println("PROCESSING");
                                         callback(csvDataIterator.next(), thisClass);
                                         thisClass.threadCount--;
-                                    } else if (thisClass.threadCount == EMPTY_THREAD) {
+                                    } else if (thisClass.threadCount == EMPTY_THREAD || !csvDataIterator.getCsvRecordIterator().hasNext()) {
+                                        System.out.println("DONE");
                                         thisClass.done();
                                     } else {
+                                        System.out.println("waitAround");
                                         thisClass.waitAround();
                                     }
                                 } catch (Exception e) {
