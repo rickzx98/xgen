@@ -159,22 +159,20 @@ public class CSVDataParser {
                 final ParseBatch thisClass = this;
                 if (!thisClass.stopped) {
                     if (thisClass.threadCount < thisClass.maxThreadCount) {
-                      System.out.println("Thread created " + thisClass.threadCount);
+                        System.out.println("Thread Created");
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
                                 try {
                                     if (csvDataIterator.getCsvRecordIterator().hasNext()) {
                                         thisClass.threadCount++;
-                                        System.out.println("PROCESSING");
                                         callback(csvDataIterator.next(), thisClass);
                                         thisClass.threadCount--;
-                                    } else if (thisClass.threadCount == EMPTY_THREAD || !csvDataIterator.getCsvRecordIterator().hasNext()) {
-                                        System.out.println("DONE");
-                                        thisClass.done();
-                                    } else {
-                                        System.out.println("waitAround");
+                                        System.out.println("Wait Around");
                                         thisClass.waitAround();
+                                    } else if (thisClass.threadCount == EMPTY_THREAD) {
+                                        System.out.println("Done");
+                                        thisClass.done();
                                     }
                                 } catch (Exception e) {
                                     thisClass.stop();
