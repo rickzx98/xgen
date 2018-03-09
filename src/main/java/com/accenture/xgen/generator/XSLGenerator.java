@@ -123,7 +123,7 @@ public class XSLGenerator {
                 FileWriter fw = null;
                 boolean toBeDeleted = Boolean.FALSE;
                 try {
-                    bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(innerFileXml), "UTF-8"));
+                    bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(innerFileXml)));
                     //fw = new FileWriter(innerFileXml);
                     //bw = new BufferedWriter(fw);
                     bw.write(schema.getXmlStartTag());
