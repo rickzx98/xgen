@@ -1,0 +1,28 @@
+<soapenv:Envelope xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bsvc="urn:com.workday/bsvc"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header></soapenv:Header>
+    <soapenv:Body>
+        <bsvc:Maintain_Contact_Information_for_Person_Event_Request bsvc:version="sampleVersion">
+            <bsvc:Maintain_Contact_Information_Data>
+                <bsvc:Worker_Reference>
+                    <bsvc:ID bsvc:type="Employee_ID">2802434</bsvc:ID>
+                </bsvc:Worker_Reference>
+
+                <bsvc:Effective_Date>1900-01-01</bsvc:Effective_Date>
+                <bsvc:Worker_Contact_Information_Data>
+
+                    <bsvc:Email_Address_Data bsvc:Delete="false" bsvc:Do_Not_Replace_All="true">
+                        <bsvc:Email_Address>calone.other@dummy.com</bsvc:Email_Address>
+                        <bsvc:Usage_Data bsvc:Public="false">
+                            <bsvc:Type_Data bsvc:Primary="false">
+                                <bsvc:Type_Reference>
+                                    <bsvc:ID bsvc:type="Communication_Usage_Type_ID">HOME</bsvc:ID>
+                                </bsvc:Type_Reference>
+                            </bsvc:Type_Data>
+                        </bsvc:Usage_Data>
+                    </bsvc:Email_Address_Data>
+                </bsvc:Worker_Contact_Information_Data>
+            </bsvc:Maintain_Contact_Information_Data>
+        </bsvc:Maintain_Contact_Information_for_Person_Event_Request>
+    </soapenv:Body>
+</soapenv:Envelope>
