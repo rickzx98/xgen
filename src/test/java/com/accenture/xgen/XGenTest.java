@@ -37,6 +37,6 @@ public class XGenTest {
                 new XSDFilePath(xsdFilePath),
                 new DestinationPath(destinationPath), 
                               1000,
-                              10, new Separator("\\|"), version).waitAround();
+                              10, new Separator("|"), version).waitAround();
     }
 }
