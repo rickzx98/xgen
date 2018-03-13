@@ -8,9 +8,10 @@ public class Separator {
 
     public Separator(String separator) {
         //this.separator = separator.replaceAll("\\\\","\\\\\\\\");
-        if (separator != null) {
-          this.separator = StringEscapeUtils.escapeJava(separator);
-        }
+        //if (separator != null) {
+        //  this.separator = StringEscapeUtils.escapeJava(separator);
+        //}
+      this.separator = separator;
     }
 
     @Override

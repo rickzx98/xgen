@@ -33,9 +33,11 @@ public class XSLTestAttributeData extends XSLAttributeData {
     public boolean evaluate() {
         boolean valid = Boolean.FALSE;
         if (value.matches(SYNTAX_REG)) {
+          if (constructedValue != null) {
             for (String key : constructedValue.keySet()) {
                 scriptEngine.put(key, constructedValue.get(key));
             }
+          }
         } else {
             throw new TestSyntaxErrorException(field);
         }

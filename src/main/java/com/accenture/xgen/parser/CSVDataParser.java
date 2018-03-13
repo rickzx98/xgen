@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class CSVDataParser {
     private int batchCount = 1000;
@@ -42,7 +43,7 @@ public class CSVDataParser {
             List<CSVRecord> list = parser.getRecords();
             list.remove(list.size() - 1);
             for(CSVRecord r : list) {
-              String[] colValues = r.iterator().next().split(splitter);
+              String[] colValues = r.iterator().next().split(Pattern.quote(splitter));
             }
             records = list.iterator();
         } catch (IOException e) {
@@ -86,7 +87,7 @@ public class CSVDataParser {
             batches = new LinkedList<CSVData>();
             while (csvRecordIterator.hasNext() && count < batchCount) {
                 CSVRecord record = csvRecordIterator.next();
-                String[] colValues = record.iterator().next().split(splitter);
+                String[] colValues = record.iterator().next().split(Pattern.quote(splitter));
                 CSVData.Builder csvDataBuilder = CSVData.Builder.create(record.getRecordNumber() - 2);
                 for (int columnFieldIndex = 0; columnFieldIndex < colCountAve; columnFieldIndex++) {
                     csvDataBuilder.setValue(columns[columnFieldIndex],
@@ -101,7 +102,7 @@ public class CSVDataParser {
                 }
                 count++;
             }
-            if (batches.isEmpty() && csvRecordIterator.hasNext()) {
+            if (batches.isEmpty()) {
                 return next();
             }
             return batches;
@@ -165,14 +166,15 @@ public class CSVDataParser {
                             public void run() {
                                 try {
                                     if (csvDataIterator.getCsvRecordIterator().hasNext()) {
-                                        thisClass.threadCount++;
-                                        callback(csvDataIterator.next(), thisClass);
-                                        thisClass.threadCount--;
-                                        System.out.println("Wait Around");
-                                        thisClass.waitAround();
+                                      System.out.println("Working ");
+                                      thisClass.threadCount++;
+                                      callback(csvDataIterator.next(), thisClass);
+                                      System.out.println("Done Working");
+                                      thisClass.threadCount--;
+                                      thisClass.waitAround();
                                     } else if (thisClass.threadCount == EMPTY_THREAD) {
-                                        System.out.println("Done");
-                                        thisClass.done();
+                                      System.out.println("Done");
+                                      thisClass.done();
                                     }
                                 } catch (Exception e) {
                                     thisClass.stop();
@@ -222,7 +224,7 @@ public class CSVDataParser {
     }
 
     private void setNameHeader(CSVRecord record) {
-        nameHeader = record.iterator().next().split(splitter)[0];
+        nameHeader = record.iterator().next().split(Pattern.quote(splitter))[0];
     }
 
     public String getNameHeader() {

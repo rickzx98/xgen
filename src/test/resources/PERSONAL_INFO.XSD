@@ -2,29 +2,29 @@
 	<soapenv:Header>
 	</soapenv:Header>
 	<soapenv:Body>
-		<bsvc:Change_Personal_Information_Request bsvc:version="${version}">
-			<bsvc:Change_Personal_Information_Data>
+		<bsvc:Maintain_Contact_Information_for_Person_Event_Request bsvc:version="${version}">
+			<bsvc:Maintain_Contact_Information_Data>
 				<bsvc:Worker_Reference>
 					<bsvc:ID bsvc:type="${WORKER_TYPE}">${WORKER_ID}</bsvc:ID>
 				</bsvc:Worker_Reference>
-				<bsvc:Personal_Information_Data>
-						<bsvc:Date_of_Birth>${DATE_OF_BIRTH}</bsvc:Date_of_Birth>
-					<bsvc:Gender_Reference>
-						<#if GENDER!="null">
-							<bsvc:ID bsvc:type="Gender_Code">${GENDER}</bsvc:ID>
-					  	</#if>
-					</bsvc:Gender_Reference>
-					<bsvc:Marital_Status_Reference>
-							<bsvc:ID bsvc:type="Marital_Status_ID">${MARITAL_STATUS}</bsvc:ID>
-					</bsvc:Marital_Status_Reference>
-					<bsvc:Citizenship_Reference>
-							<bsvc:ID bsvc:type="Citizenship_Status_Code">${CITIZENSHIP}</bsvc:ID>
-					</bsvc:Citizenship_Reference>
-					<bsvc:Ethnicity_Reference>
-							<bsvc:ID bsvc:type="Ethnicity_ID">${ETHNICITY}</bsvc:ID>
-					</bsvc:Ethnicity_Reference>
-				</bsvc:Personal_Information_Data>
-			</bsvc:Change_Personal_Information_Data>
-		</bsvc:Change_Personal_Information_Request>
+				<#if EFFECTIVE_DATE!="#N/A">
+					<bsvc:Effective_Date>${EFFECTIVE_DATE}</bsvc:Effective_Date>
+				</#if>
+				<bsvc:Worker_Contact_Information_Data>
+					<#if EMAIL_ADDRESS!="#N/A">
+						<bsvc:Email_Address_Data bsvc:Delete="false" bsvc:Do_Not_Replace_All="true">
+							<bsvc:Email_Address>${EMAIL_ADDRESS}</bsvc:Email_Address>
+							<bsvc:Usage_Data bsvc:Public="${EMAIL_PUBLIC}">
+								<bsvc:Type_Data bsvc:Primary="${EMAIL_PRIMARY}">
+									<bsvc:Type_Reference>
+										<bsvc:ID bsvc:type="Communication_Usage_Type_ID">${EMAIL_USAGE_TYPE}</bsvc:ID>
+									</bsvc:Type_Reference>
+								</bsvc:Type_Data>
+							</bsvc:Usage_Data>
+						</bsvc:Email_Address_Data>
+					</#if>
+				</bsvc:Worker_Contact_Information_Data>
+			</bsvc:Maintain_Contact_Information_Data>
+		</bsvc:Maintain_Contact_Information_for_Person_Event_Request>
 	</soapenv:Body>
 </soapenv:Envelope>
