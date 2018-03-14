@@ -15,4 +15,10 @@ public class SeparatorTest {
         separator = new Separator("\\udsd");
         Assert.assertEquals("\\\\udsd", separator.toString());
     }
+
+    @Test
+    public void shouldAcceptUnicode() {
+        Separator separator = new Separator('\u25B2');
+        Assert.assertEquals(String.valueOf('\u25B2'), separator.toString());
+    }
 }

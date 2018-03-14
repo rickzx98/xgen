@@ -22,21 +22,21 @@ public class XGenTest {
 
     @Before
     public void setUp() {
-        xsdFilePath = getClass().getClassLoader().getResource("PERSONAL_INFO.XSD").getFile();
-        csvFilePath = getClass().getClassLoader().getResource("PERSONAL_INFO_2018-01-12.csv").getFile();
+        xsdFilePath = getClass().getClassLoader().getResource("ADDL_EMAIL_OTH.xsd").getFile();
+        csvFilePath = getClass().getClassLoader().getResource("ADDL_EMAIL_OTH_2018-02-23.csv").getFile();
         //csvFilePath = getClass().getClassLoader().getResource("create_position.csv").getFile();
         destinationPath = "./generated-data";
     }
 
     @Test
     public void testGenerateXMLFiles() throws IOException, XmlSchemaSerializer.XmlSchemaSerializerException {
-        
-       String version = "sampleVersion";
-      
+
+        String version = "sampleVersion";
+
         XGen.generateXMLFiles(new CSVFilePath(csvFilePath),
                 new XSDFilePath(xsdFilePath),
-                new DestinationPath(destinationPath), 
-                              1000,
-                              10, new Separator("|"), version).waitAround();
+                new DestinationPath(destinationPath),
+                1000,
+                10, new Separator(null), version).waitAround();
     }
 }

@@ -8,9 +8,8 @@ import com.accenture.xgen.model.XSDFilePath;
 import org.apache.ws.commons.schema.XmlSchemaSerializer;
 
 import java.io.IOException;
-import java.util.Map;
 import java.util.HashMap;
-import java.lang.Long;
+import java.util.Map;
 
 public class XGen {
   
@@ -22,11 +21,6 @@ public class XGen {
         return new XSLGenerator(csvFilePath, xsdFilePath, destinationPath)
                 .separator(separator.toString()).setPlaceHolderValueMap(setPlaceHolderMap(version)).generate();
     }
-  
-    //public static XGen defaultValue(Map<String, String> placeHolderDefaultValueMap) {
-    //  placeHolderDefaultValueMapHolder = placeHolderDefaultValueMap;
-    //  return xGen;
-    //}
 
     public static XSLGenerator generateXMLFiles(
             CSVFilePath csvFilePath,

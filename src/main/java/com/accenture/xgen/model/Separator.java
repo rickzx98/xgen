@@ -1,17 +1,21 @@
 package com.accenture.xgen.model;
 
-import org.apache.commons.text.StringEscapeUtils;
-
 public class Separator {
 
-    private String separator = ";";
+    private String separator = "\\u25B2";
+
+    public Separator(char unicode) {
+        this.separator = String.valueOf(unicode);
+    }
 
     public Separator(String separator) {
-        //this.separator = separator.replaceAll("\\\\","\\\\\\\\");
-        //if (separator != null) {
-        //  this.separator = StringEscapeUtils.escapeJava(separator);
-        //}
-      this.separator = separator;
+        if (separator != null) {
+            this.separator = separator.replaceAll("\\\\", "\\\\\\\\");
+        /*if (separator != null) {
+            this.separator = StringEscapeUtils.escapeJava(separator);
+        }*/
+            this.separator = separator;
+        }
     }
 
     @Override

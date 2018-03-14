@@ -1,0 +1,68 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bsvc="urn:com.workday/bsvc">
+	<soapenv:Header>
+	</soapenv:Header>
+	<soapenv:Body>
+		<bsvc:Manage_Certifications_Request bsvc:version="${version}">
+			<bsvc:Manage_Certifications_Data>
+				<bsvc:Role_Reference>
+					<bsvc:ID bsvc:type="${WORKER_TYPE}">${WORKER_ID}</bsvc:ID>
+				</bsvc:Role_Reference>
+				<bsvc:Source_Reference>
+					<#if SKILL_SOURCE!="#N/A">
+						<bsvc:ID bsvc:type="Skill_Source_Category_ID">${SKILL_SOURCE}</bsvc:ID>
+					</#if>
+				</bsvc:Source_Reference>
+				<bsvc:Certification>
+					<bsvc:Certification_Data>
+						<#if CERTIFICATION_ID!="#N/A">
+							<bsvc:Certification_ID>${CERTIFICATION_ID}</bsvc:Certification_ID>
+						</#if>
+						<bsvc:Certification_Reference>
+							<#if CERTIFICATION_REFERENCE!="#N/A">
+								<bsvc:ID bsvc:type="Certification_ID">${CERTIFICATION_REFERENCE}</bsvc:ID>
+							</#if>
+						</bsvc:Certification_Reference>
+						<bsvc:Country_Reference>
+							<#if COUNTRY!="#N/A">
+								<bsvc:ID bsvc:type="ISO_3166-1_Alpha-3_Code">${COUNTRY}</bsvc:ID>
+							</#if>
+						</bsvc:Country_Reference>
+						<#if CERTIFICATION_NAME!="#N/A">
+							<bsvc:Certification_Name>${CERTIFICATION_NAME}</bsvc:Certification_Name>
+						</#if>
+						<#if CERTIFICATION_ISSUER!="#N/A">
+							<bsvc:Issuer>${CERTIFICATION_ISSUER}</bsvc:Issuer>
+						</#if>
+						<#if CERTIFICATION_NUMBER!="#N/A">
+							<bsvc:Certification_Number>${CERTIFICATION_NUMBER}</bsvc:Certification_Number>
+						</#if>
+						<#if ISSUED_DATE!="#N/A">
+							<bsvc:Issued_Date>${ISSUED_DATE}</bsvc:Issued_Date>
+						</#if>
+						<#if EXPIRATION_DATE!="#N/A">
+							<bsvc:Expiration_Date>${EXPIRATION_DATE}</bsvc:Expiration_Date>
+						</#if>
+						<#if EXAM_SCORE!="#N/A">
+							<bsvc:Examination_Score>${EXAM_SCORE}</bsvc:Examination_Score>
+						</#if>
+						<#if EXAM_DATE!="#N/A">
+							<bsvc:Examination_Date>${EXAM_DATE}</bsvc:Examination_Date>
+						</#if>
+						<bsvc:Specialty_Achievement_Data>
+							<bsvc:Specialty_Reference>
+								<#if SPECIALTY!="#N/A">
+									<bsvc:ID bsvc:type="Specialty_ID">${SPECIALTY}</bsvc:ID>
+								</#if>
+							</bsvc:Specialty_Reference>
+							<bsvc:Subspecialty_Reference>
+								<#if SUBSPECIALTY!="#N/A">
+									<bsvc:ID bsvc:type="Subspecialty_ID">${SUBSPECIALTY}</bsvc:ID>
+								</#if>
+							</bsvc:Subspecialty_Reference>
+						</bsvc:Specialty_Achievement_Data>
+					</bsvc:Certification_Data>
+				</bsvc:Certification>
+			</bsvc:Manage_Certifications_Data>
+		</bsvc:Manage_Certifications_Request>
+	</soapenv:Body>
+</soapenv:Envelope>
