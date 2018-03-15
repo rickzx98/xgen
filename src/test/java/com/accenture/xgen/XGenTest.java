@@ -23,7 +23,7 @@ public class XGenTest {
     @Before
     public void setUp() {
         xsdFilePath = getClass().getClassLoader().getResource("PERSONAL_INFO.xsd").getFile();
-        csvFilePath = getClass().getClassLoader().getResource("PERSONAL_INFO_2018-01-12.csv").getFile();
+        csvFilePath = getClass().getClassLoader().getResource("ADDL_EMAIL_OTH_2018-02-23.csv").getFile();
         //csvFilePath = getClass().getClassLoader().getResource("create_position.csv").getFile();
         destinationPath = "./generated-data";
     }
@@ -37,6 +37,6 @@ public class XGenTest {
                 new XSDFilePath(xsdFilePath),
                 new DestinationPath(destinationPath),
                 1000,
-                10, new Separator("|"), version).waitAround();
+                10, new Separator("\u25B2", "y"), version).waitAround();
     }
 }
