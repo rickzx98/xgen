@@ -21,4 +21,10 @@ public class SeparatorTest {
         Separator separator = new Separator('\u25B2');
         Assert.assertEquals(String.valueOf('\u25B2'), separator.toString());
     }
+
+    @Test
+    public void shouldAcceptUnicodeFlagInConstructor(){
+        Separator separator  = new Separator("\u25B2",true);
+        Assert.assertEquals(String.valueOf('\u25B2'), separator.toString());
+    }
 }

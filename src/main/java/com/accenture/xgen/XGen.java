@@ -8,8 +8,9 @@ import com.accenture.xgen.model.XSDFilePath;
 import org.apache.ws.commons.schema.XmlSchemaSerializer;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
+import java.lang.Long;
 
 public class XGen {
   
