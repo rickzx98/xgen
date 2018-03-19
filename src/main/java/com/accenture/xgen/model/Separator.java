@@ -1,13 +1,18 @@
 package com.accenture.xgen.model;
 
-import org.apache.commons.text.StringEscapeUtils;
+
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class Separator {
 
     private String separator = "\\u25B2";
 
     public Separator(String separator, String unicode) {
-        this.separator = StringEscapeUtils.escapeJava(separator);
+        if (unicode.equalsIgnoreCase("y")) {
+            this.separator = StringEscapeUtils.escapeJava(separator);
+        } else {
+            this.separator = separator;
+        }
     }
 
     public Separator(char unicode) {

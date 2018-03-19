@@ -2,22 +2,14 @@ package com.accenture.xgen.parser;
 
 import com.accenture.xgen.model.CSVData;
 import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.csv.CSVParser;
-import org.apache.commons.text.StringEscapeUtils;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.lang.StringEscapeUtils;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.FileInputStream;
-import java.io.Reader;
-import java.util.ArrayList;
+import java.io.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Arrays;
-import java.util.regex.Pattern;
 
 public class CSVDataParser {
     private int batchCount = 1000;

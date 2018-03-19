@@ -1,9 +1,9 @@
 package com.accenture.xgen.model;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.text.StringEscapeUtils;
-//import org.springframework.web.util.HtmlUtils;
 
 public class CSVData implements DocumentData {
     public String[] fields;
@@ -40,11 +40,11 @@ public class CSVData implements DocumentData {
         for (String field : fields) {
             String value = getValue(field);
             if (placeHolderDefaultsValueMap != null && !placeHolderDefaultsValueMap.isEmpty()) {
-              if (placeHolderDefaultsValueMap.containsKey(field) && (value == null || value.isEmpty())) {                
-                value = placeHolderDefaultsValueMap.get(field);
-              }
+                if (placeHolderDefaultsValueMap.containsKey(field) && (value == null || value.isEmpty())) {
+                    value = placeHolderDefaultsValueMap.get(field);
+                }
             }
-            structure.put(field, StringEscapeUtils.escapeXml10(value));
+            structure.put(field, StringEscapeUtils.escapeXml(value));
         }
         return structure.build(structureData);
     }
