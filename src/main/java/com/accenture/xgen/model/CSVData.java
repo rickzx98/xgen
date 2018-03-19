@@ -67,6 +67,7 @@ public class CSVData implements DocumentData {
         }
 
         public Builder setValue(String field, String value) {
+            value = StringEscapeUtils.unescapeJava(value);
             mappings.put(field, value);
             return this;
         }

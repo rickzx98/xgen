@@ -219,6 +219,7 @@ public class CSVDataParser {
 
     private void setNameHeader(CSVRecord record) {
         nameHeader = StringEscapeUtils.escapeJava(record.iterator().next()).split(splitter)[0];
+        nameHeader = StringEscapeUtils.unescapeJava(nameHeader);
     }
 
     public String getNameHeader() {
