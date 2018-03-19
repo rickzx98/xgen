@@ -4,6 +4,7 @@ import com.accenture.xgen.model.CSVData;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -38,13 +39,10 @@ public class CSVDataParser {
         Reader in = null;
         try {
             InputStream inputStream = new FileInputStream(filepath);
-            in = new InputStreamReader(inputStream, "UTF-8");
+            in = new InputStreamReader(inputStream);
             CSVParser parser = CSVFormat.EXCEL.newFormat(';').withQuote('"').parse(in);
             List<CSVRecord> list = parser.getRecords();
             list.remove(list.size() - 1);
-            for(CSVRecord r : list) {
-              String[] colValues = r.iterator().next().split(Pattern.quote(splitter));
-            }
             records = list.iterator();
         } catch (IOException e) {
             throw new CSVDataParserException(e.getMessage());
@@ -65,21 +63,21 @@ public class CSVDataParser {
     }
 
     private class CSVDataIterator {
-        
+
         private Iterator<CSVRecord> csvRecordIterator;
-        
+
         private LinkedList<CSVData> batches;
 
         private CSVDataIterator(Iterator<CSVRecord> csvRecordIterator) {
-          synchronized (csvRecordIterator) {
-            this.csvRecordIterator = csvRecordIterator;
-          }
+            synchronized (csvRecordIterator) {
+                this.csvRecordIterator = csvRecordIterator;
+            }
         }
 
         private Iterator<CSVRecord> getCsvRecordIterator() {
-          synchronized (csvRecordIterator) {
-            return csvRecordIterator;
-          }
+            synchronized (csvRecordIterator) {
+                return csvRecordIterator;
+            }
         }
 
         private List<CSVData> next() {
@@ -87,7 +85,11 @@ public class CSVDataParser {
             batches = new LinkedList<CSVData>();
             while (csvRecordIterator.hasNext() && count < batchCount) {
                 CSVRecord record = csvRecordIterator.next();
-                String[] colValues = record.iterator().next().split(Pattern.quote(splitter));
+                System.out.println("Splitting with pattern: " + splitter);
+                String row = record.iterator().next();
+                String escaped = StringEscapeUtils.escapeJava(row);
+                System.out.println("row: " + escaped);
+                String[] colValues = escaped.split(splitter);
                 CSVData.Builder csvDataBuilder = CSVData.Builder.create(record.getRecordNumber() - 2);
                 for (int columnFieldIndex = 0; columnFieldIndex < colCountAve; columnFieldIndex++) {
                     csvDataBuilder.setValue(columns[columnFieldIndex],
@@ -166,15 +168,15 @@ public class CSVDataParser {
                             public void run() {
                                 try {
                                     if (csvDataIterator.getCsvRecordIterator().hasNext()) {
-                                      System.out.println("Working ");
-                                      thisClass.threadCount++;
-                                      callback(csvDataIterator.next(), thisClass);
-                                      System.out.println("Done Working");
-                                      thisClass.threadCount--;
-                                      thisClass.waitAround();
+                                        System.out.println("Working ");
+                                        thisClass.threadCount++;
+                                        callback(csvDataIterator.next(), thisClass);
+                                        System.out.println("Done Working");
+                                        thisClass.threadCount--;
+                                        thisClass.waitAround();
                                     } else if (thisClass.threadCount == EMPTY_THREAD) {
-                                      System.out.println("Done");
-                                      thisClass.done();
+                                        System.out.println("Done");
+                                        thisClass.done();
                                     }
                                 } catch (Exception e) {
                                     thisClass.stop();
@@ -224,7 +226,7 @@ public class CSVDataParser {
     }
 
     private void setNameHeader(CSVRecord record) {
-        nameHeader = record.iterator().next().split(Pattern.quote(splitter))[0];
+        nameHeader = StringEscapeUtils.escapeJava(record.iterator().next()).split(splitter)[0];
     }
 
     public String getNameHeader() {
