@@ -1,0 +1,232 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bsvc="urn:com.workday/bsvc">
+	<soapenv:Header>
+	</soapenv:Header>
+	<soapenv:Body>
+		<bsvc:Add_Dependent_Request bsvc:version="${version}">
+			<bsvc:Add_Dependent_Data>
+				<bsvc:Dependent_ID>${DEPENDENT_ID}</bsvc:Dependent_ID>
+				<#if EFFECTIVE_DATE!="#N/A">
+					<bsvc:Effective_Date>${EFFECTIVE_DATE}</bsvc:Effective_Date>
+				</#if>
+				<#if ADD_DEPENDENT_REASON!="#N/A">
+					<bsvc:Reason_Reference>
+						<bsvc:ID bsvc:type="Event_Classification_Subcategory_ID">${ADD_DEPENDENT_REASON}</bsvc:ID>
+					</bsvc:Reason_Reference>
+				</#if>
+				<bsvc:Employee_Reference>
+					<bsvc:ID bsvc:type="${WORKER_TYPE}">${WORKER_ID}</bsvc:ID>
+				</bsvc:Employee_Reference>
+				<bsvc:Related_Person_Relationship_Reference>
+					<bsvc:ID bsvc:type="Related_Person_Relationship_ID">${RELATIONSHIP}</bsvc:ID>
+				</bsvc:Related_Person_Relationship_Reference>
+				<bsvc:Use_Employee_Address>${USE_EMPL_ADDR}</bsvc:Use_Employee_Address>
+				<bsvc:Use_Employee_Phone>${USE_EMPL_PHONE}</bsvc:Use_Employee_Phone>
+				<bsvc:Dependent_Personal_Information_Data>
+					<#if NAME_COUNTRY!="#N/A">
+						<bsvc:Person_Name_Data>
+							<bsvc:Name_Detail_Data>
+								<bsvc:Country_Reference>
+									<bsvc:ID bsvc:type="ISO_3166-1_Alpha-3_Code">${NAME_COUNTRY}</bsvc:ID>
+								</bsvc:Country_Reference>
+								<bsvc:Prefix_Data>
+									<#if PREFIX_TITLE!="#N/A">
+										<bsvc:Title_Reference>
+											<bsvc:ID bsvc:type="Predefined_Name_Component_ID">${PREFIX_TITLE}</bsvc:ID>
+										</bsvc:Title_Reference>
+									</#if>
+									<#if PREFIX_SALUTATION!="#N/A">
+										<bsvc:Salutation_Reference>
+											<bsvc:ID bsvc:type="Predefined_Name_Component_ID">${PREFIX_SALUTATION}</bsvc:ID>
+										</bsvc:Salutation_Reference>
+									</#if>
+								</bsvc:Prefix_Data>
+								<#if FIRST_NAME!="#N/A">
+									<bsvc:First_Name>${FIRST_NAME}</bsvc:First_Name>
+								</#if>
+								<#if MIDDLE_NAME!="#N/A">
+									<bsvc:Middle_Name>${MIDDLE_NAME}</bsvc:Middle_Name>
+								</#if>
+								<#if LAST_NAME!="#N/A">
+									<bsvc:Last_Name>${LAST_NAME}</bsvc:Last_Name>
+								</#if>
+								<#if SEC_NAME!="#N/A">
+									<bsvc:Secondary_Last_Name>${SEC_NAME}</bsvc:Secondary_Last_Name>
+								</#if>
+								<bsvc:Local_Name_Detail_Data>
+									<#if LOCAL_FIRST_NAME!="#N/A">
+										<bsvc:First_Name>${LOCAL_FIRST_NAME}</bsvc:First_Name>
+									</#if>
+									<#if LOCAL_MIDDLE_NAME!="#N/A">
+										<bsvc:Middle_Name>${LOCAL_MIDDLE_NAME}</bsvc:Middle_Name>
+									</#if>
+									<#if LOCAL_LAST_NAME!="#N/A">
+										<bsvc:Last_Name>${LOCAL_LAST_NAME}</bsvc:Last_Name>
+									</#if>
+									<#if LOCAL_SEC_NAME!="#N/A">
+										<bsvc:Secondary_Last_Name>${LOCAL_SEC_NAME}</bsvc:Secondary_Last_Name>
+									</#if>
+								</bsvc:Local_Name_Detail_Data>
+								<bsvc:Suffix_Data>
+									<#if SUFFIX_SOCIAL!="#N/A">
+										<bsvc:Social_Suffix_Reference>
+											<bsvc:ID bsvc:type="Predefined_Name_Component_ID">${SUFFIX_SOCIAL}</bsvc:ID>
+										</bsvc:Social_Suffix_Reference>
+									</#if>
+									<#if SUFFIX_HEREDITARY!="#N/A">
+										<bsvc:Hereditary_Suffix_Reference>
+											<bsvc:ID bsvc:type="Predefined_Name_Component_ID">${SUFFIX_HEREDITARY}</bsvc:ID>
+										</bsvc:Hereditary_Suffix_Reference>
+									</#if>
+								</bsvc:Suffix_Data>
+							</bsvc:Name_Detail_Data>
+						</bsvc:Person_Name_Data>
+					</#if>
+					<bsvc:Contact_Information_Data>
+						<#if USE_EMPL_ADDR="false">
+							<#if ADDRESS_COUNTRY!="#N/A">
+								<bsvc:Address_Data bsvc:Effective_Date="${ADDRESS_EFF_DATE}">
+									<bsvc:Country_Reference>
+										<bsvc:ID bsvc:type="ISO_3166-1_Alpha-3_Code">${ADDRESS_COUNTRY}</bsvc:ID>
+									</bsvc:Country_Reference>
+									<#if ADDRESS_LINE_1!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_1">${ADDRESS_LINE_1}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_2!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_2">${ADDRESS_LINE_2}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_3!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_3">${ADDRESS_LINE_3}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_4!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_4">${ADDRESS_LINE_4}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_5!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_5">${ADDRESS_LINE_5}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_6!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_6">${ADDRESS_LINE_6}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_7!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_7">${ADDRESS_LINE_7}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_8!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_8">${ADDRESS_LINE_8}</bsvc:Address_Line_Data>
+									</#if>
+									<#if ADDRESS_LINE_9!="#N/A">
+										<bsvc:Address_Line_Data bsvc:Type="ADDRESS_LINE_9">${ADDRESS_LINE_9}</bsvc:Address_Line_Data>
+									</#if>
+									<#if MUNICIPALITY!="#N/A">
+										<bsvc:Municipality>${MUNICIPALITY}</bsvc:Municipality>
+									</#if>
+									<#if SUBMUNICIPALITY_1!="#N/A">
+										<bsvc:Submunicipality_Data bsvc:Type="CITY_SUBDIVISION_1">${SUBMUNICIPALITY_1}</bsvc:Submunicipality_Data>
+									</#if>
+									<#if SUBMUNICIPALITY_2!="#N/A">
+										<bsvc:Submunicipality_Data bsvc:Type="CITY_SUBDIVISION_2">${SUBMUNICIPALITY_2}</bsvc:Submunicipality_Data>
+									</#if>
+									<#if REGION!="#N/A">
+										<bsvc:Country_Region_Reference>
+											<bsvc:ID bsvc:type="Country_Region_ID">${REGION}</bsvc:ID>
+										</bsvc:Country_Region_Reference>
+									</#if>
+									<#if SUBREGION_1!="#N/A">
+										<bsvc:Subregion_Data bsvc:Type="REGION_SUBDIVISION_1">${SUBREGION_1}</bsvc:Subregion_Data>
+									</#if>
+									<#if SUBREGION_2!="#N/A">
+										<bsvc:Subregion_Data bsvc:Type="REGION_SUBDIVISION_2">${SUBREGION_2}</bsvc:Subregion_Data>
+									</#if>
+									<#if POSTAL_CODE!="#N/A">
+										<bsvc:Postal_Code>${POSTAL_CODE}</bsvc:Postal_Code>
+									</#if>
+									<bsvc:Usage_Data bsvc:Public="${ADDRESS_PUBLIC}">
+										<bsvc:Type_Data bsvc:Primary="${ADDRESS_PRIMARY}">
+											<bsvc:Type_Reference>
+												<bsvc:ID bsvc:type="Communication_Usage_Type_ID">${ADDRESS_USAGE_TYPE}</bsvc:ID>
+											</bsvc:Type_Reference>
+										</bsvc:Type_Data>
+										<#if ADDRESS_USAGE_BEHAVIOR!="#N/A">
+											<bsvc:Use_For_Reference>
+												<bsvc:ID bsvc:type="Communication_Usage_Behavior_ID">${ADDRESS_USAGE_BEHAVIOR}</bsvc:ID>
+											</bsvc:Use_For_Reference>
+										</#if>
+									</bsvc:Usage_Data>
+								</bsvc:Address_Data>
+							</#if>
+						</#if>
+						<#if USE_EMPL_PHONE="false">
+							<#if PHONE_NUMBER!="#N/A">
+								<bsvc:Phone_Data>
+									<#if PHONE_COUNTRY!="#N/A">
+										<bsvc:Country_ISO_Code>${PHONE_COUNTRY}</bsvc:Country_ISO_Code>
+									</#if>
+									<#if INT_PHONE_CODE!="#N/A">
+										<bsvc:International_Phone_Code>${INT_PHONE_CODE}</bsvc:International_Phone_Code>
+									</#if>
+									<#if AREA_CODE!="#N/A">
+										<bsvc:Area_Code>${AREA_CODE}</bsvc:Area_Code>
+									</#if>
+									<bsvc:Phone_Number>${PHONE_NUMBER}</bsvc:Phone_Number>
+									<#if PHONE_EXTENSION!="#N/A">
+										<bsvc:Phone_Extension>${PHONE_EXTENSION}</bsvc:Phone_Extension>
+									</#if>
+									<bsvc:Phone_Device_Type_Reference>
+										<bsvc:ID bsvc:type="Phone_Device_Type_ID">${PHONE_DEVICE_TYPE}</bsvc:ID>
+									</bsvc:Phone_Device_Type_Reference>
+									<bsvc:Usage_Data bsvc:Public="${PHONE_PUBLIC}">
+										<bsvc:Type_Data bsvc:Primary="${PHONE_PRIMARY}">
+											<bsvc:Type_Reference>
+												<bsvc:ID bsvc:type="Communication_Usage_Type_ID">${PHONE_USAGE_TYPE}</bsvc:ID>
+											</bsvc:Type_Reference>
+										</bsvc:Type_Data>
+									</bsvc:Usage_Data>
+								</bsvc:Phone_Data>
+							</#if>
+						</#if>
+						<#if EMAIL_ADDRESS!="#N/A">
+							<bsvc:Email_Address_Data bsvc:Delete="false" bsvc:Do_Not_Replace_All="true">
+								<bsvc:Email_Address>${EMAIL_ADDRESS}</bsvc:Email_Address>
+								<bsvc:Usage_Data bsvc:Public="${EMAIL_PUBLIC}">
+									<bsvc:Type_Data bsvc:Primary="${EMAIL_PRIMARY}">
+										<bsvc:Type_Reference>
+											<bsvc:ID bsvc:type="Communication_Usage_Type_ID">${EMAIL_USAGE_TYPE}</bsvc:ID>
+										</bsvc:Type_Reference>
+									</bsvc:Type_Data>
+								</bsvc:Usage_Data>
+							</bsvc:Email_Address_Data>
+						</#if>
+					</bsvc:Contact_Information_Data>
+					<bsvc:Date_of_Birth>${DATE_OF_BIRTH}</bsvc:Date_of_Birth>
+					<#if DATE_OF_DEATH!="#N/A">
+						<bsvc:Date_of_Death>${DATE_OF_DEATH}</bsvc:Date_of_Death>
+					</#if>
+					<bsvc:Gender_Reference>
+						<bsvc:ID bsvc:type="Gender_Code">${GENDER}</bsvc:ID>
+					</bsvc:Gender_Reference>
+					<#if CITIZENSHIP!="#N/A">
+						<bsvc:Citizenship_Status_Reference>
+							<bsvc:ID bsvc:type="Citizenship_Status_Code">${CITIZENSHIP}</bsvc:ID>
+						</bsvc:Citizenship_Status_Reference>
+					</#if>
+					<#if NATIONALITY!="#N/A">
+						<bsvc:Country_of_Nationality_Reference>
+							<bsvc:ID bsvc:type="ISO_3166-1_Alpha-3_Code">${NATIONALITY}</bsvc:ID>
+						</bsvc:Country_of_Nationality_Reference>
+					</#if>
+					<#if COUNTRY_OF_BIRTH!="#N/A">
+						<bsvc:Country_of_Birth_Reference>
+							<bsvc:ID bsvc:type="ISO_3166-1_Alpha-3_Code">${COUNTRY_OF_BIRTH}</bsvc:ID>
+						</bsvc:Country_of_Birth_Reference>
+					</#if>
+					<#if REGION_OF_BIRTH!="#N/A">
+						<bsvc:Region_of_Birth_Reference>
+							<bsvc:ID bsvc:type="Country_Region_ID">${REGION_OF_BIRTH}</bsvc:ID>
+						</bsvc:Region_of_Birth_Reference>
+					</#if>
+					<#if CITY_OF_BIRTH!="#N/A">
+						<bsvc:City_of_Birth>${CITY_OF_BIRTH}</bsvc:City_of_Birth>
+					</#if>
+				</bsvc:Dependent_Personal_Information_Data>
+			</bsvc:Add_Dependent_Data>
+		</bsvc:Add_Dependent_Request>
+	</soapenv:Body>
+</soapenv:Envelope>
