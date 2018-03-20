@@ -218,11 +218,15 @@ public class CSVDataParser {
     }
 
     private void setNameHeader(CSVRecord record) {
-        nameHeader = StringEscapeUtils.escapeJava(record.iterator().next()).split(splitter)[0];
-        nameHeader = StringEscapeUtils.unescapeJava(nameHeader);
+        String headerRow = StringEscapeUtils.escapeJava(record.iterator().next());
+        System.out.println("HeaderRow: " + headerRow);
+        String unescapedHeader = StringEscapeUtils.unescapeJava(headerRow.split(splitter)[0]);
+        System.out.println("UnescapedHeader: " + unescapedHeader);
+        nameHeader = unescapedHeader;
     }
 
     public String getNameHeader() {
+        System.out.println("getNameHeader: " + nameHeader);
         return nameHeader;
     }
 }

@@ -44,7 +44,7 @@ public class CSVData implements DocumentData {
                     value = placeHolderDefaultsValueMap.get(field);
                 }
             }
-            structure.put(field, StringEscapeUtils.escapeXml(value));
+            structure.put(field, value);
         }
         return structure.build(structureData);
     }
