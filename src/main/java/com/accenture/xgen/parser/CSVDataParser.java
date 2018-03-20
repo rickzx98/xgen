@@ -31,7 +31,7 @@ public class CSVDataParser {
         Reader in = null;
         try {
             InputStream inputStream = new FileInputStream(filepath);
-            in = new InputStreamReader(inputStream);
+            in = new InputStreamReader(inputStream, "UTF-8");
             CSVParser parser = CSVFormat.EXCEL.newFormat(';').withQuote('"').parse(in);
             List<CSVRecord> list = parser.getRecords();
             list.remove(list.size() - 1);
