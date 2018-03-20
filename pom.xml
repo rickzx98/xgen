@@ -4,7 +4,7 @@
 
     <groupId>com.accenture</groupId>
     <artifactId>xgen</artifactId>
-    <version>1.2.15-SNAPSHOT</version>
+    <version>1.2.15</version>
     <build>
         <plugins>
             <plugin>
