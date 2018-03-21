@@ -44,9 +44,18 @@ public class CSVData implements DocumentData {
                     value = placeHolderDefaultsValueMap.get(field);
                 }
             }
-            structure.put(field, value);
+
+            structure.put(field, escapeXML(value));
         }
         return structure.build(structureData);
+    }
+
+    private String escapeXML(String value) {
+        return value.replaceAll("\"", "&quot;")
+                .replaceAll("'", "&apos;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll("&", "&amp;");
     }
 
     public long recordNumber() {
