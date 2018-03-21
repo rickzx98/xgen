@@ -40,12 +40,10 @@
                 </bsvc:Business_Process_Attachment_Data>
             </bsvc:Business_Process_Parameters>
             <bsvc:Create_Position_Data>
-                <if test="${SUP_ORG_REF != 'N/A'}">
-                    <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="${JOB_POSTING_ID}">
+                <bsvc:Supervisory_Organization_Reference bsvc:Descriptor="${JOB_POSTING_ID}">
                     <!--Zero or more repetitions:-->
                     <bsvc:ID bsvc:type="?">${SUP_ORG_REF}</bsvc:ID>
-                    </bsvc:Supervisory_Organization_Reference>
-                </if>
+                </bsvc:Supervisory_Organization_Reference>
                 <!--Optional:-->
                 <bsvc:Position_Request_Reason_Reference bsvc:Descriptor="${POSITION_ID}">
                     <!--Zero or more repetitions:-->
@@ -53,10 +51,7 @@
                 </bsvc:Position_Request_Reason_Reference>
                 <bsvc:Position_Data>
                     <!--Optional:-->
-
-                    <#if POSITION_ID='N/A'>
-                        <bsvc:Position_ID>${POSITION_ID}</bsvc:Position_ID>
-                    </#if>
+                    <bsvc:Position_ID>${POSITION_ID}</bsvc:Position_ID>
                     <!--Optional-->
                     <bsvc:Job_Posting_Title>${JOB_POSTING_ID}</bsvc:Job_Posting_Title>
                     <!--Optional:
