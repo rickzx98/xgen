@@ -51,11 +51,12 @@ public class CSVData implements DocumentData {
     }
 
     private String escapeXML(String value) {
-        return value.replaceAll("\"", "&quot;")
+        return value
+                .replaceAll("&", "&amp;")
+                .replaceAll("\"", "&quot;")
                 .replaceAll("'", "&apos;")
                 .replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;")
-                .replaceAll("&", "&amp;");
+                .replaceAll(">", "&gt;");
     }
 
     public long recordNumber() {
